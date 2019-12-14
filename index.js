@@ -3,20 +3,6 @@ const express = require('express')
 const exphbs = require('express-handlebars')
 const app = express()
 
-const config = require('./config/config')
-
-
-config.db.any('SELECT * FROM flat ')
-    .then(function(data) {
-        console.log(data)
-    })
-    .catch(function(error) {
-        // error;
-    });
-
-
-
-
 app.engine('.hbs', exphbs({
     defaultLayout: 'main',
     extname: '.hbs',
