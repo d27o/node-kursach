@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false
       }
     });
+    models.ExtraOptions.hasOne(models.ResponsiblePerson);
   };
   return ExtraOptions;
 };

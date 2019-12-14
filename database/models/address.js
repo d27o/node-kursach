@@ -13,6 +13,8 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false
       }
     });
+
+    models.Address.hasOne(models.ResponsiblePerson);
   };
   return Address;
 };
