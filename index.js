@@ -3,14 +3,10 @@ const express = require('express')
 const exphbs = require('express-handlebars')
 const app = express()
 
-import {pgp, db} from './config/config.js';
+const config = require('./config/config')
 
 
-// var pgp = require("pg-promise")(/*options*/);
-// var db = pgp("postgres://d27o:secret@127.0.0.1:5432/kursach");
-
-
-db.any('SELECT * FROM flat ')
+config.db.any('SELECT * FROM flat ')
     .then(function(data) {
         console.log(data)
     })
