@@ -9,12 +9,13 @@ module.exports = (sequelize, DataTypes) => {
       onDelete: "CASCADE"
     });
     // One Document has one Type of Document
-    models.Document.hasMany(models.ResponsiblePerson);
-    // One Document has one Responsible Person
     models.Document.belongsTo(models.ResponsiblePerson, {
       onDelete: "CASCADE"
     });
     // One Document has One Responsible Person
+    models.Document.hasOne(models.Extradition);
+    // One Document has one Extradition
+
   };
   return Document;
 };

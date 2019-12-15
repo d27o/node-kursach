@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   ResponsiblePerson.associate = function(models) {
     // associations can be defined here
-    models.ResponsiblePerson.toBelong(models.Position,{
+    models.ResponsiblePerson.belongsTo(models.Position,{
       onDelete: "CASCADE",
       foreignKey: {
         allowNull: false
@@ -27,6 +27,10 @@ module.exports = (sequelize, DataTypes) => {
     // Responsible Person has one Extra Options
     models.ResponsiblePerson.hasMany(models.Document);
     // Responsible Person has many Documents
+    models.ResponsiblePerson.hasMany(models.Extradition);
+    // Responsible Person has many Extradition
+    models.ResponsiblePerson.hasMany(models.Registration);
+    // Responsible Person has many Registrations
   };
   return ResponsiblePerson;
 };
