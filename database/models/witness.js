@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
     serialNumber: DataTypes.INTEGER
   }, {});
   Witness.associate = function(models) {
-    // associations can be defined here
+    // witness belongns to many to protocol
     Witness.associate = function(models) {
       Witness.belongsToMany(models.Protocol, {
         through: 'ProtocolWitness',
@@ -15,8 +15,8 @@ module.exports = (sequelize, DataTypes) => {
       });
     };
     Witness.associate = function(models) {
-      // associations can be defined here
-      models.Witness.toBelong(models.Adress, {
+      // witness to belong adress
+      models.Witness.belongsTo(models.Adress, {
         onDelete: "cascade",
         foreignKey: {
           allowNull: false

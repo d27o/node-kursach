@@ -5,8 +5,8 @@ module.exports = (sequelize, DataTypes) => {
     time: DataTypes.TIME
   }, {});
   Protocol.associate = function(models) {
-    // associations can be defined here
-    models.Protocol.toBelong(models.Place, {
+    // belogns to one place
+    models.Protocol.belongsTo(models.Place, {
       onDelete: "cascade",
       foreignKey: {
         allowNull: false
@@ -15,6 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   };
 
   Protocol.associate = function(models) {
+    // protocol belongns to many to witness
     Protocol.belongsToMany(models.Witness, {
       through: 'ProtocolWitness',
       foreignKey: 'protocolId'

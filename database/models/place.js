@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
     description: DataTypes.STRING
   }, {});
   Place.associate = function(models) {
-    // associations can be defined here
+    // place has one protocol
     models.Place.hasOne(models.Protocol);
   };
   return Place;
