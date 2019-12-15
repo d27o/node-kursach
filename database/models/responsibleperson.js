@@ -13,15 +13,18 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false
       }
     });
+    // Responsible Person has one Position
     models.ResponsiblePerson.toBelong(models.Address, {
       onDelete: "cascade",
       foreignKey: {
         allowNull: false
       }
     });
+    // Responsible Person has one Address
     models.ResponsiblePerson.toBelong(models.ExtraOptions, {
       onDelete: "cascade"
     });
+    // Responsible Person has one Extra Options
   };
   return ResponsiblePerson;
 };

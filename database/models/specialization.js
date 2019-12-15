@@ -5,7 +5,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   Specialization.associate = function(models) {
     // associations can be defined here
-    models.Specialization.hasMany(models.ExtraOptions)
+    models.Specialization.hasMany(models.ExtraOptions);
+    // Many Specializations has one Extra Options
   };
   return Specialization;
 };

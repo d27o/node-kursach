@@ -11,7 +11,9 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false
       }
     });
+    // Extra Options has one Specialization
     models.ExtraOptions.hasOne(models.ResponsiblePerson);
+    // Extra Options has one Responsible Person
   };
   return ExtraOptions;
 };

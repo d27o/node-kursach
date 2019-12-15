@@ -6,6 +6,7 @@ module.exports = (sequelize, DataTypes) => {
   Position.associate = function(models) {
     // associations can be defined here
     models.Position.hasMany(models.ResponsiblePerson);
+    // Many Positions has One Responsible Person
   };
   return Position;
 };

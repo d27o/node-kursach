@@ -13,8 +13,10 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false
       }
     });
+    // Address has one city
 
     models.Address.hasOne(models.ResponsiblePerson);
+    // Responsible Person has one Address
   };
   return Address;
 };
