@@ -29,7 +29,16 @@ module.exports = {
         references: {
           model: 'Places',
           key: 'id'
-        }
+        }    
+      },
+      witnessId: {
+        type: Sequelize.INTEGER,
+        onDelete: "CASCADE",
+        allowNull: false,
+        references: {
+          model: 'Witnesses',
+          key: 'id'
+        }    
       }
     });
   },

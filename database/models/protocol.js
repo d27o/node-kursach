@@ -1,9 +1,13 @@
-'use strict';
+"use strict";
 module.exports = (sequelize, DataTypes) => {
-  const Protocol = sequelize.define('Protocol', {
-    date: DataTypes.DATE,
-    time: DataTypes.TIME
-  }, {});
+  const Protocol = sequelize.define(
+    "Protocol",
+    {
+      date: DataTypes.DATE,
+      time: DataTypes.TIME
+    },
+    {}
+  );
   Protocol.associate = function(models) {
     // belogns to one place
     models.Protocol.belongsTo(models.Place, {
@@ -12,13 +16,11 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false
       }
     });
-  };
 
-  Protocol.associate = function(models) {
     // protocol belongns to many to witness
     Protocol.belongsToMany(models.Witness, {
-      through: 'ProtocolWitness',
-      foreignKey: 'protocolId'
+      through: "ProtocolWitness",
+      foreignKey: "protocolId"
     });
   };
 
