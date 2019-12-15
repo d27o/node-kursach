@@ -13,5 +13,13 @@ module.exports = (sequelize, DataTypes) => {
       }
     });
   };
+
+  Protocol.associate = function(models) {
+    Protocol.belongsToMany(models.Witness, {
+      through: 'ProtocolWitness',
+      foreignKey: 'protocolId'
+    });
+  };
+
   return Protocol;
 };
