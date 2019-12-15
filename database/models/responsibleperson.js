@@ -14,17 +14,19 @@ module.exports = (sequelize, DataTypes) => {
       }
     });
     // Responsible Person has one Position
-    models.ResponsiblePerson.toBelong(models.Address, {
-      onDelete: "cascade",
+    models.ResponsiblePerson.belongsTo(models.Address, {
+      onDelete: "CASCADE",
       foreignKey: {
         allowNull: false
       }
     });
     // Responsible Person has one Address
-    models.ResponsiblePerson.toBelong(models.ExtraOptions, {
-      onDelete: "cascade"
+    models.ResponsiblePerson.belongsTo(models.ExtraOptions, {
+      onDelete: "CASCADE"
     });
     // Responsible Person has one Extra Options
+    models.ResponsiblePerson.hasMany(models.Document);
+    // Responsible Person has many Documents
   };
   return ResponsiblePerson;
 };
