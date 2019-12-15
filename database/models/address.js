@@ -13,6 +13,11 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false
       }
     });
+    // 
+    Address.associate = function(models) {
+      // associations can be defined here
+      models.Address.hasOne(models.Witness);
+    };
   };
   return Address;
 };

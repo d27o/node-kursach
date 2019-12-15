@@ -14,6 +14,17 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'witnessId'
       });
     };
+    Witness.associate = function(models) {
+      // associations can be defined here
+      models.Witness.toBelong(models.Adress, {
+        onDelete: "cascade",
+        foreignKey: {
+          allowNull: false
+        }
+      });
+    };
+
+
   };
   return Witness;
 };

@@ -20,6 +20,15 @@ module.exports = {
       serialNumber: {
         type: Sequelize.INTEGER
       },
+      addressId: {
+        type: Sequelize.INTEGER,
+        onDelete: "CASCADE",
+        allowNull: false,
+        references: {
+          model: 'Addresses',
+          key: 'id'
+        }
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
