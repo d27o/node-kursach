@@ -20,4 +20,10 @@ app.get('/', (request, response) => {
     })
 })
 
+app.get('/login', (request, response) => {
+    response.render('login', {
+        name: 'John'
+    })
+})
+
 app.listen(3000)
