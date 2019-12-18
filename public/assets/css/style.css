@@ -9,6 +9,8 @@
     margin: 15px 10px;
 }
 
+/* custom */
+
 .login,
 .image {
   min-height: 100vh;
@@ -40,7 +42,7 @@
 .form-label-group>label {
   padding: var(--input-padding-y) var(--input-padding-x);
   height: auto;
-  border-radius: 2rem;
+  /* border-radius: 2rem; */
 }
 
 .form-label-group>label {
