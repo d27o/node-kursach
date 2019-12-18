@@ -33,6 +33,15 @@ module.exports = {
           model: "ResponsiblePeople",
           key: 'id'
         }
+      },
+      materialEvidenceId: {
+        type: Sequelize.INTEGER,
+        onDelete: "CASCADE",
+        allowNull: false,
+        references: {
+          model: "MaterialEvidences",
+          key: 'id'
+        }
       }
     });
   },

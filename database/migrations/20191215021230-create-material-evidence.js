@@ -1,18 +1,18 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Protocols', {
+    return queryInterface.createTable('MaterialEvidences', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      date: {
-        type: Sequelize.DATE
+      name: {
+        type: Sequelize.STRING
       },
-      time: {
-        type: Sequelize.TIME
+      state: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
@@ -22,18 +22,27 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
-      placeId: {
+      typeOfMaterialEvidenceId: {
         type: Sequelize.INTEGER,
         onDelete: "CASCADE",
         allowNull: false,
         references: {
-          model: 'Places',
+          model: "TypeOfMaterialEvidences",
           key: 'id'
-        }    
+        }
+      },
+      protocolId: {
+        type: Sequelize.INTEGER,
+        onDelete: "CASCADE",
+        allowNull: false,
+        references: {
+          model: "Protocols",
+          key: 'id'
+        }
       }
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Protocols');
+    return queryInterface.dropTable('MaterialEvidences');
   }
 };
