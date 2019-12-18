@@ -24,6 +24,13 @@ module.exports = (sequelize, DataTypes) => {
       }
     });
     // One Expertise belongs to One Responsible Person
+    models.Expertise.belongsTo(models.CriminalCase, {
+      onDelete: "CASCADE",
+      foreignKey: {
+        allowNull: false
+      }
+    });
+    // One Expertise belongs to One Criminal Case
   };
   return Expertise;
 };
