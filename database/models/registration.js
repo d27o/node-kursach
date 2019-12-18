@@ -16,6 +16,13 @@ module.exports = (sequelize, DataTypes) => {
       }
     });
     // One Registration has One Responsible Person
+    models.Registration.belongsTo(models.MaterialEvidence, {
+      onDelete: "CASCADE",
+      foreignKey: {
+        allowNull: false
+      }
+    });
+    // One Registration has One Material Evidence
   };
   return Registration;
 };
