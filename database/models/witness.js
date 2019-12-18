@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     // witness to belong adress
-    models.Witness.toBelong(models.Adress, {
+    models.Witness.belongsTo(models.Address, {
       onDelete: "cascade",
       foreignKey: {
         allowNull: false
