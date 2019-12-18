@@ -22,6 +22,8 @@ module.exports = (sequelize, DataTypes) => {
       }
     });
     // One Material Evidence has One Protocol
+    models.MaterialEvidence.hasMany(models.Expertise);
+    // One Material has Many Expertise
   };
   return MaterialEvidence;
 };
