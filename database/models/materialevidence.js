@@ -24,6 +24,11 @@ module.exports = (sequelize, DataTypes) => {
     // One Material Evidence has One Protocol
     models.MaterialEvidence.hasMany(models.Expertise);
     // One Material has Many Expertise
+    models.MaterialEvidence.belongsToMany(models.CriminalCase, {
+      through: "CriminalCaseMaterialEvidence",
+      foreignKey: "materialEvidenceId"
+    });
+    // Many Material Evidence belongs to Many Criminal Cases
   };
   return MaterialEvidence;
 };

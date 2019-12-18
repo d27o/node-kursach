@@ -1,48 +1,30 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Expertises', {
+    return queryInterface.createTable('CriminalCaseMaterialEvidences', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      date: {
-        type: Sequelize.DATE
-      },
-      time: {
-        type: Sequelize.TIME
-      },
-      conclusion: {
-        type: Sequelize.STRING
-      },
-      responsiblePersonId: {
-        type: Sequelize.INTEGER,
-        onDelete: "CASCADE",
-        allowNull: false,
-        references: {
-          model: "ResponsiblePeople",
-          key: 'id'
-        }
-      },
       criminalCaseId: {
         type: Sequelize.INTEGER,
         onDelete: "CASCADE",
         allowNull: false,
         references: {
-          model: "CriminalCases",
+          model: 'CriminalCases',
           key: 'id'
-        }
+        }    
       },
       materialEvidenceId: {
         type: Sequelize.INTEGER,
         onDelete: "CASCADE",
         allowNull: false,
         references: {
-          model: "MaterialEvidences",
+          model: 'MaterialEvidences',
           key: 'id'
-        }
+        }    
       },
       createdAt: {
         allowNull: false,
@@ -55,6 +37,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Expertises');
+    return queryInterface.dropTable('CriminalCaseMaterialEvidences');
   }
 };
