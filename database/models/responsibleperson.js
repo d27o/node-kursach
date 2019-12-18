@@ -31,6 +31,8 @@ module.exports = (sequelize, DataTypes) => {
     // Responsible Person has many Extradition
     models.ResponsiblePerson.hasMany(models.Registration);
     // Responsible Person has many Registrations
+    models.ResponsiblePerson.hasMany(models.Expertise);
+    // Responsible Person has many Registrations
   };
   return ResponsiblePerson;
 };
