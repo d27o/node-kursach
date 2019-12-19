@@ -9,6 +9,7 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here
     models.Address.belongsTo(models.City, {
       onDelete: "CASCADE",
+      onUpdate: "CASCADE",
       foreignKey: {
         allowNull: false
       }

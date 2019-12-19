@@ -9,6 +9,7 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here
     models.Extradition.belongsTo(models.Document, {
       onDelete: "CASCADE",
+      onUpdate: "CASCADE",
       foreignKey: {
         allowNull: false
       }
@@ -16,6 +17,7 @@ module.exports = (sequelize, DataTypes) => {
     // One Extradition has one Document
     models.Extradition.belongsTo(models.ResponsiblePerson, {
       onDelete: "CASCADE",
+      onUpdate: "CASCADE",
       foreignKey: {
         allowNull: false
       }
@@ -23,6 +25,7 @@ module.exports = (sequelize, DataTypes) => {
     // One Extradition has One Responsible Person
     models.Extradition.belongsTo(models.Registration, {
       onDelete: "CASCADE",
+      onUpdate: "CASCADE",
       foreignKey: {
         allowNull: false
       }

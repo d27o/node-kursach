@@ -11,7 +11,8 @@ module.exports = (sequelize, DataTypes) => {
   Protocol.associate = function(models) {
     // belogns to one place
     models.Protocol.belongsTo(models.Place, {
-      onDelete: "cascade",
+      onDelete: "CASCADE",
+      onUpdate: "CASCADE",
       foreignKey: {
         allowNull: false
       }

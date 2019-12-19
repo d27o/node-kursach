@@ -11,6 +11,7 @@ module.exports = {
       criminalCaseId: {
         type: Sequelize.INTEGER,
         onDelete: "CASCADE",
+        onUpdate: "CASCADE",
         allowNull: false,
         references: {
           model: 'CriminalCases',
@@ -20,6 +21,7 @@ module.exports = {
       materialEvidenceId: {
         type: Sequelize.INTEGER,
         onDelete: "CASCADE",
+        onUpdate: "CASCADE",
         allowNull: false,
         references: {
           model: 'MaterialEvidences',

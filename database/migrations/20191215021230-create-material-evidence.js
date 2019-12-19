@@ -25,6 +25,7 @@ module.exports = {
       typeOfMaterialEvidenceId: {
         type: Sequelize.INTEGER,
         onDelete: "CASCADE",
+        onUpdate: "CASCADE",
         allowNull: false,
         references: {
           model: "TypeOfMaterialEvidences",
@@ -34,6 +35,7 @@ module.exports = {
       protocolId: {
         type: Sequelize.INTEGER,
         onDelete: "CASCADE",
+        onUpdate: "CASCADE",
         allowNull: false,
         references: {
           model: "Protocols",
