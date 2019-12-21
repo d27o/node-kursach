@@ -18,7 +18,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       serialNumber: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       addressId: {
         type: Sequelize.INTEGER,
