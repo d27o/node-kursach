@@ -29,7 +29,7 @@ module.exports = {
           key: 'id'
         }
       },
-      resposiblePersonId: {
+      responsiblePersonId: {
         type: Sequelize.INTEGER,
         onDelete: "CASCADE",
         onUpdate: "CASCADE",
