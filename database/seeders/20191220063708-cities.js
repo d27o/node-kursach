@@ -49,7 +49,7 @@ module.exports = {
           updatedAt: new Date()
         },
         {
-          name: "Оринбург",
+          name: "Оренбург",
           createdAt: new Date(),
           updatedAt: new Date()
         }

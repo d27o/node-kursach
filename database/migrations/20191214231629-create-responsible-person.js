@@ -11,10 +11,10 @@ module.exports = {
       name: {
         type: Sequelize.STRING
       },
-      middleName: {
+      patronymicName: {
         type: Sequelize.STRING
       },
-      secondName: {
+      lastName: {
         type: Sequelize.STRING
       },
       createdAt: {
