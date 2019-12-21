@@ -9,6 +9,7 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here
     models.ResponsiblePerson.belongsTo(models.Position,{
       onDelete: "CASCADE",
+      onUpdate: "CASCADE",
       foreignKey: {
         allowNull: false
       }
@@ -16,13 +17,15 @@ module.exports = (sequelize, DataTypes) => {
     // Responsible Person has one Position
     models.ResponsiblePerson.belongsTo(models.Address, {
       onDelete: "CASCADE",
+      onUpdate: "CASCADE",
       foreignKey: {
         allowNull: false
       }
     });
     // Responsible Person has one Address
     models.ResponsiblePerson.belongsTo(models.ExtraOptions, {
-      onDelete: "CASCADE"
+      onDelete: "CASCADE",
+      onUpdate: "CASCADE",
     });
     // Responsible Person has one Extra Options
     models.ResponsiblePerson.hasMany(models.Document);

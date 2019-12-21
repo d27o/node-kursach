@@ -8,6 +8,7 @@ module.exports = (sequelize, DataTypes) => {
     // associations can be defined here
     models.MaterialEvidence.belongsTo(models.TypeOfMaterialEvidence, {
       onDelete: "CASCADE",
+      onUpdate: "CASCADE",
       foreignKey: {
         allowNull: false
       }
@@ -17,6 +18,7 @@ module.exports = (sequelize, DataTypes) => {
     // One Material Evidence has Many Registrations
     models.MaterialEvidence.belongsTo(models.Protocol, {
       onDelete: "CASCADE",
+      onUpdate: "CASCADE",
       foreignKey: {
         allowNull: false
       }

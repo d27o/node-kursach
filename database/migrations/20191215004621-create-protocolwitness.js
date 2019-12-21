@@ -11,6 +11,7 @@ module.exports = {
       protocolId: {
         type: Sequelize.INTEGER,
         onDelete: "CASCADE",
+        onUpdate: "CASCADE",
         allowNull: false,
         references: {
           model: 'Protocols',
@@ -20,6 +21,7 @@ module.exports = {
       witnessId: {
         type: Sequelize.INTEGER,
         onDelete: "CASCADE",
+        onUpdate: "CASCADE",
         allowNull: false,
         references: {
           model: 'Witnesses',

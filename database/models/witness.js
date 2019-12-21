@@ -20,7 +20,8 @@ module.exports = (sequelize, DataTypes) => {
 
     // witness to belong adress
     models.Witness.belongsTo(models.Address, {
-      onDelete: "cascade",
+      onDelete: "CASCADE",
+      onUpdate: "CASCADE",
       foreignKey: {
         allowNull: false
       }

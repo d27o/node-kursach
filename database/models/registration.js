@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
     // One Registration has One Extradition
     models.Registration.belongsTo(models.ResponsiblePerson, {
       onDelete: "CASCADE",
+      onUpdate: "CASCADE",
       foreignKey: {
         allowNull: false
       }
@@ -18,6 +19,7 @@ module.exports = (sequelize, DataTypes) => {
     // One Registration has One Responsible Person
     models.Registration.belongsTo(models.MaterialEvidence, {
       onDelete: "CASCADE",
+      onUpdate: "CASCADE",
       foreignKey: {
         allowNull: false
       }

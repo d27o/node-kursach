@@ -28,6 +28,7 @@ module.exports = {
       documentId: {
         type: Sequelize.INTEGER,
         onDelete: "CASCADE",
+        onUpdate: "CASCADE",
         allowNull: false,
         references: {
           model: "Documents",
@@ -37,6 +38,7 @@ module.exports = {
       responsiblePersonId: {
         type: Sequelize.INTEGER,
         onDelete: "CASCADE",
+        onUpdate: "CASCADE",
         allowNull: false,
         references: {
           model: "ResponsiblePeople",
@@ -46,6 +48,7 @@ module.exports = {
       registrationId: {
         type: Sequelize.INTEGER,
         onDelete: "CASCADE",
+        onUpdate: "CASCADE",
         allowNull: false,
         references: {
           model: "Registrations",

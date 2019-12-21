@@ -28,6 +28,7 @@ module.exports = {
       positionId: {
         type: Sequelize.INTEGER,
         onDelete: "CASCADE",
+        onUpdate: "CASCADE",
         allowNull: false,
         references: {
           model: 'Positions',
@@ -37,6 +38,7 @@ module.exports = {
       addressId: {
         type: Sequelize.INTEGER,
         onDelete: "CASCADE",
+        onUpdate: "CASCADE",
         allowNull: false,
         references: {
           model: "Addresses",
@@ -46,6 +48,7 @@ module.exports = {
       extraOptionsId: {
         type: Sequelize.INTEGER,
         onDelete: "CASCADE",
+        onUpdate: "CASCADE",
         references: {
           model: "ExtraOptions",
           key: 'id'

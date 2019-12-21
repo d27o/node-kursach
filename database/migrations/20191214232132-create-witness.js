@@ -23,6 +23,7 @@ module.exports = {
       addressId: {
         type: Sequelize.INTEGER,
         onDelete: "CASCADE",
+        onUpdate: "CASCADE",
         allowNull: false,
         references: {
           model: 'Addresses',

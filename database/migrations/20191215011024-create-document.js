@@ -22,6 +22,7 @@ module.exports = {
       typeOfDocumentId: {
         type: Sequelize.INTEGER,
         onDelete: "CASCADE",
+        onUpdate: "CASCADE",
         allowNull: false,
         references: {
           model: "TypeOfDocuments",
@@ -31,6 +32,7 @@ module.exports = {
       resposiblePersonId: {
         type: Sequelize.INTEGER,
         onDelete: "CASCADE",
+        onUpdate: "CASCADE",
         allowNull: false,
         references: {
           model: "ResponsiblePeople",
