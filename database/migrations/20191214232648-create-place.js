@@ -14,9 +14,6 @@ module.exports = {
       name: {
         type: Sequelize.STRING
       },
-      inspectionTime: {
-        type: Sequelize.TIME
-      },
       description: {
         type: Sequelize.STRING
       },
