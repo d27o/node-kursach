@@ -9,11 +9,15 @@ exports.login = function(req, res) {
 };
 
 exports.home = function(req, res) {
-  res.render("home");
+  res.render("home", {layout: "loginMain"});
 };
 
 exports.logout = function(req, res) {
   req.session.destroy(function(err) {
     res.redirect("/");
   });
+};
+
+exports.welcome = function(req, res) {
+  res.render("welcome");
 };
