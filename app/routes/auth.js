@@ -38,4 +38,6 @@ module.exports = function(app, passport) {
   app.get("/tables/cities", isLoggedIn ,authController.citiesTable)
 
   app.get("/tables/addresses", isLoggedIn ,authController.addressesTable)
+
+  app.get("/tables/specializations", isLoggedIn ,authController.specializationsTable)
 };

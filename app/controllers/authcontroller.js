@@ -39,6 +39,13 @@ exports.addressesTable = function(req, res) {
   });
 }
 
+exports.specializationsTable = function(req, res) {
+  let specialization = require("../../database/models").Specialization;
+  specialization.findAll().then(function(specializations) {
+    res.render("specializationsTable", {specializations: specializations});
+  });
+}
+
 exports.welcome = function(req, res) {
   res.render("welcome");
 };
