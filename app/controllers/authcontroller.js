@@ -102,6 +102,12 @@ exports.registrationsTable = function(req, res) {
   });
 }
 
+exports.criminalCaseTable = function(req, res) {
+  require("../../database/models").CriminalCase.findAll().then(function(criminalCase) {
+    res.render("criminalCaseTabel", {criminalCase: criminalCase});
+  });
+}
+
 exports.welcome = function(req, res) {
   res.render("welcome");
 };

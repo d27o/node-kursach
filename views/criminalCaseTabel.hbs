@@ -1,0 +1,18 @@
+<div class="table-responsive">
+    <table class="table table-striped table-sm">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Номер уголовного дела</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each criminalCase}}
+            <tr>
+                <td>{{this.id}}</td>
+                <td>{{this.numberOfCriminalCase}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
