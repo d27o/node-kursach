@@ -1,10 +1,27 @@
-const path = require('path')
-const express = require('express')
-const exphbs = require('express-handlebars')
-const app = express()
+var express = require("express");
+const path = require('path');
+var app = express();
+var passport = require("passport");
+var session = require("express-session");
+var bodyParser = require("body-parser");
+// var env = require("dotenv").load();
+var exphbs = require("express-handlebars");
+
 
 app.use(express.static(path.join(__dirname, 'public')));
 
+//For BodyParser
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+// For Passport
+app.use(
+  session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
+); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+
+//For Handlebars
 app.engine('.hbs', exphbs({
     defaultLayout: 'main',
     extname: '.hbs',
@@ -14,16 +31,32 @@ app.engine('.hbs', exphbs({
 app.set('view engine', '.hbs')
 app.set('views', path.join(__dirname, 'views'))
 
-app.get('/', (request, response) => {
-    response.render('home', {
-        name: 'John'
-    })
-})
+app.get("/", function(req, res) {
+  res.send("Welcome to Passport with Sequelize");
+});
 
-app.get('/login', (request, response) => {
-    response.render('login', {
-        name: 'John'
-    })
-})
+//Models
+var user = require("./database/models").ResponsiblePerson;
 
-app.listen(3000)
+//Routes
+var authRoute = require("./app/routes/auth.js")(app, passport);
+
+//load passport strategies
+require("./app/config/passport")(passport, user);
+
+//Sync Database
+// models.sequelize
+//   .sync()
+//   .then(function() {
+//     console.log("Nice! Database looks fine");
+//   })
+//   .catch(function(err) {
+//     console.log(err, "Something went wrong with the Database Update!");
+//   });
+
+// console.log(user.findAll())
+
+app.listen(5000, function(err) {
+  if (!err) console.log("Site is live");
+  else console.log(err);
+});

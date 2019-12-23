@@ -17,6 +17,12 @@ module.exports = {
       lastName: {
         type: Sequelize.STRING
       },
+      username: {
+        type: Sequelize.STRING
+      },
+      password: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -25,7 +31,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
-      positionId: {
+      PositionId: {
         type: Sequelize.INTEGER,
         onDelete: "CASCADE",
         onUpdate: "CASCADE",
@@ -35,7 +41,7 @@ module.exports = {
           key: 'id'
         }
       },
-      addressId: {
+      AddressId: {
         type: Sequelize.INTEGER,
         onDelete: "CASCADE",
         onUpdate: "CASCADE",
@@ -45,7 +51,7 @@ module.exports = {
           key: 'id'
         }
       },
-      extraOptionsId: {
+      ExtraOptionId: {
         type: Sequelize.INTEGER,
         onDelete: "CASCADE",
         onUpdate: "CASCADE",

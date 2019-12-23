@@ -15,9 +15,11 @@ module.exports = {
           lastName: "Иванов",
           createdAt: new Date(),
           updatedAt: new Date(),
-          positionId: 1,
-          addressId: 5,
-          extraOptionsId: 2
+          PositionId: 1,
+          AddressId: 5,
+          ExtraOptionId: 2,
+          password: '$2a$08$LXRanPgF3D9vsXogcC.6QetC5ADD8mcxQ2y.mtmMxgUz9ySH0Tm16',
+          username: 'admin'
         },
         {
           name: "Дмитрий",
@@ -25,8 +27,8 @@ module.exports = {
           lastName: "Калугин",
           createdAt: new Date(),
           updatedAt: new Date(),
-          positionId: 2,
-          addressId: 3
+          PositionId: 2,
+          AddressId: 3
         },
         {
           name: "Андрей",
@@ -34,8 +36,8 @@ module.exports = {
           lastName: "Антипов",
           createdAt: new Date(),
           updatedAt: new Date(),
-          positionId: 2,
-          addressId: 2
+          PositionId: 2,
+          AddressId: 2
         },
         {
           name: "Максим",
@@ -43,8 +45,8 @@ module.exports = {
           lastName: "Эйнтшейн",
           createdAt: new Date(),
           updatedAt: new Date(),
-          positionId: 3,
-          addressId: 1
+          PositionId: 3,
+          AddressId: 1
         }
       ],
       {}

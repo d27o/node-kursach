@@ -23,7 +23,6 @@ module.exports = (sequelize, DataTypes) => {
       through: "ProtocolWitness",
       foreignKey: "protocolId"
     });
-  };
 
   Protocol.hasMany(models.MaterialEvidence);
   // One Protocol has Many Materila Evidence
