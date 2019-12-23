@@ -31,10 +31,6 @@ app.engine('.hbs', exphbs({
 app.set('view engine', '.hbs')
 app.set('views', path.join(__dirname, 'views'))
 
-app.get("/", function(req, res) {
-  res.send("Welcome to Passport with Sequelize");
-});
-
 //Models
 var user = require("./database/models").ResponsiblePerson;
 

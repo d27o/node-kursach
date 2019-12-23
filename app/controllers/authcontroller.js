@@ -5,7 +5,7 @@ var exports = (module.exports = {});
 // };
 
 exports.login = function(req, res) {
-  res.render("login");
+  res.render("login", {layout: 'loginMain'});
 };
 
 exports.home = function(req, res) {
