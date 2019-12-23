@@ -60,6 +60,12 @@ exports.witnessesTable = function(req, res) {
   });
 }
 
+exports.typeOfDocumentsTable = function(req, res) {
+  require("../../database/models").TypeOfDocument.findAll().then(function(typeOfDocuments) {
+    res.render("typeOfDocumentsTable", {typeOfDocuments: typeOfDocuments});
+  });
+}
+
 exports.welcome = function(req, res) {
   res.render("welcome");
 };
