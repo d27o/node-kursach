@@ -54,4 +54,6 @@ module.exports = function(app, passport) {
   app.get("/tables/protocols", isLoggedIn ,authController.protocolsTable)
 
   app.get("/tables/documents", isLoggedIn ,authController.documentsTable)
+
+  app.get("/tables/typeOfMaterialEvidences", isLoggedIn ,authController.typeOfMaterialEvidencesTable)
 };

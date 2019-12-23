@@ -84,6 +84,12 @@ exports.documentsTable = function(req, res) {
   });
 }
 
+exports.typeOfMaterialEvidencesTable = function(req, res) {
+  require("../../database/models").TypeOfMaterialEvidence.findAll().then(function(typeOfMaterialEvidences) {
+    res.render("typeOfMaterialEvidencesTable", {typeOfMaterialEvidences: typeOfMaterialEvidences});
+  });
+}
+
 exports.welcome = function(req, res) {
   res.render("welcome");
 };
