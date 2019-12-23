@@ -14,8 +14,8 @@ module.exports = {
           note: 'Принят без притензий',
           createdAt: new Date(),
           updatedAt: new Date(),
-          responsiblePersonId: 2,
-          materialEvidenceId: 1
+          ResponsiblePersonId: 2,
+          MaterialEvidenceId: 1
         },
         {
           acceptDate: new Date(2019, 11, 12, 21, 20),
@@ -23,8 +23,8 @@ module.exports = {
           note: 'Принят без притензий',
           createdAt: new Date(),
           updatedAt: new Date(),
-          responsiblePersonId: 2,
-          materialEvidenceId: 2
+          ResponsiblePersonId: 2,
+          MaterialEvidenceId: 2
         },
         {
           acceptDate: new Date(2019, 11, 10, 22, 20),
@@ -32,8 +32,8 @@ module.exports = {
           note: 'Принят без притензий',
           createdAt: new Date(),
           updatedAt: new Date(),
-          responsiblePersonId: 3,
-          materialEvidenceId: 3
+          ResponsiblePersonId: 3,
+          MaterialEvidenceId: 3
         },
         {
           acceptDate: new Date(2019, 11, 11, 18, 20),
@@ -41,8 +41,8 @@ module.exports = {
           note: 'Принят без притензий',
           createdAt: new Date(),
           updatedAt: new Date(),
-          responsiblePersonId: 3,
-          materialEvidenceId: 4
+          ResponsiblePersonId: 3,
+          MaterialEvidenceId: 4
         },
         {
           acceptDate: new Date(2019, 7, 9, 22, 20),
@@ -50,8 +50,8 @@ module.exports = {
           note: 'Принят с притензиями',
           createdAt: new Date(),
           updatedAt: new Date(),
-          responsiblePersonId: 2,
-          materialEvidenceId: 5
+          ResponsiblePersonId: 2,
+          MaterialEvidenceId: 5
         }
       ], {});
     

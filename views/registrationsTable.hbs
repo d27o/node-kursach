@@ -1,0 +1,22 @@
+<div class="table-responsive">
+    <table class="table table-striped table-sm">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Дата регистрации</th>
+                <th>Отметка целостности</th>
+                <th>Заметка</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each registrations}}
+            <tr>
+                <td>{{this.id}}</td>
+                <td>{{this.acceptDate}}</td>
+                <td>{{this.integrityMark}}</td>
+                <td>{{this.note}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>

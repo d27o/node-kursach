@@ -25,7 +25,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
-      responsiblePersonId: {
+      ResponsiblePersonId: {
         type: Sequelize.INTEGER,
         onDelete: "CASCADE",
         onUpdate: "CASCADE",
@@ -35,7 +35,7 @@ module.exports = {
           key: 'id'
         }
       },
-      materialEvidenceId: {
+      MaterialEvidenceId: {
         type: Sequelize.INTEGER,
         onDelete: "CASCADE",
         onUpdate: "CASCADE",

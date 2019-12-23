@@ -96,6 +96,12 @@ exports.materialEvidencesTable = function(req, res) {
   });
 }
 
+exports.registrationsTable = function(req, res) {
+  require("../../database/models").Registration.findAll().then(function(registrations) {
+    res.render("registrationsTable", {registrations: registrations});
+  });
+}
+
 exports.welcome = function(req, res) {
   res.render("welcome");
 };
