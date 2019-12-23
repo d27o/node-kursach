@@ -19,7 +19,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
-      typeOfDocumentId: {
+      TypeOfDocumentId: {
         type: Sequelize.INTEGER,
         onDelete: "CASCADE",
         onUpdate: "CASCADE",
@@ -29,7 +29,7 @@ module.exports = {
           key: 'id'
         }
       },
-      responsiblePersonId: {
+      ResponsiblePersonId: {
         type: Sequelize.INTEGER,
         onDelete: "CASCADE",
         onUpdate: "CASCADE",

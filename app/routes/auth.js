@@ -50,4 +50,14 @@ module.exports = function(app, passport) {
   app.get("/tables/typeOfDocuments", isLoggedIn ,authController.typeOfDocumentsTable)
 
   app.get("/tables/places", isLoggedIn ,authController.placesTable)
+
+  app.get("/tables/protocols", isLoggedIn ,authController.protocolsTable)
+
+  app.get("/tables/documents", isLoggedIn ,authController.documentsTable)
+
+  app.get("/tables/typeOfMaterialEvidences", isLoggedIn ,authController.typeOfMaterialEvidencesTable)
+
+  app.get("/tables/materialEvidences", isLoggedIn ,authController.materialEvidencesTable)
+  
+  app.get("/tables/registrations", isLoggedIn ,authController.registrationsTable)
 };

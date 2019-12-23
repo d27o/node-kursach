@@ -72,6 +72,36 @@ exports.placesTable = function(req, res) {
   });
 }
 
+exports.protocolsTable = function(req, res) {
+  require("../../database/models").Protocol.findAll().then(function(protocols) {
+    res.render("protocolsTable", {protocols: protocols});
+  });
+}
+
+exports.documentsTable = function(req, res) {
+  require("../../database/models").Document.findAll().then(function(documents) {
+    res.render("documentsTable", {documents: documents});
+  });
+}
+
+exports.typeOfMaterialEvidencesTable = function(req, res) {
+  require("../../database/models").TypeOfMaterialEvidence.findAll().then(function(typeOfMaterialEvidences) {
+    res.render("typeOfMaterialEvidencesTable", {typeOfMaterialEvidences: typeOfMaterialEvidences});
+  });
+}
+
+exports.materialEvidencesTable = function(req, res) {
+  require("../../database/models").MaterialEvidence.findAll().then(function(materialEvidences) {
+    res.render("materialEvidencesTable", {materialEvidences: materialEvidences});
+  });
+}
+
+exports.registrationsTable = function(req, res) {
+  require("../../database/models").Registration.findAll().then(function(registrations) {
+    res.render("registrationsTable", {registrations: registrations});
+  });
+}
+
 exports.welcome = function(req, res) {
   res.render("welcome");
 };

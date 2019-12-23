@@ -1,0 +1,20 @@
+<div class="table-responsive">
+    <table class="table table-striped table-sm">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Наименование вещественного доказательства</th>
+                <th>Состояние вещественного доказательства</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each materialEvidences}}
+            <tr>
+                <td>{{this.id}}</td>
+                <td>{{this.name}}</td>
+                <td>{{this.state}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>

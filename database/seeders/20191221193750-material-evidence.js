@@ -13,40 +13,40 @@ module.exports = {
           state: 'Новый',
           createdAt: new Date(),
           updatedAt: new Date(),
-          typeOfMaterialEvidenceId: 1,
-          protocolId: 1
+          TypeOfMaterialEvidenceId: 1,
+          ProtocolId: 1
         },
         {
           name: 'Автомат АК-47',
           state: 'Поношенный',
           createdAt: new Date(),
           updatedAt: new Date(),
-          typeOfMaterialEvidenceId: 2,
-          protocolId: 1
+          TypeOfMaterialEvidenceId: 2,
+          ProtocolId: 1
         },
         {
           name: 'Видеозапись происшествия',
           state: 'Новый',
           createdAt: new Date(),
           updatedAt: new Date(),
-          typeOfMaterialEvidenceId: 4,
-          protocolId: 1
+          TypeOfMaterialEvidenceId: 4,
+          ProtocolId: 1
         },
         {
           name: 'Документ купли-продажи',
           state: 'Новый',
           createdAt: new Date(),
           updatedAt: new Date(),
-          typeOfMaterialEvidenceId: 5,
-          protocolId: 2
+          TypeOfMaterialEvidenceId: 5,
+          ProtocolId: 2
         },
         {
           name: 'Стиральная машинка',
           state: 'Старая',
           createdAt: new Date(),
           updatedAt: new Date(),
-          typeOfMaterialEvidenceId: 6,
-          protocolId: 3
+          TypeOfMaterialEvidenceId: 6,
+          ProtocolId: 3
         },
       ], {});
     

@@ -3,8 +3,7 @@ module.exports = (sequelize, DataTypes) => {
   const Protocol = sequelize.define(
     "Protocol",
     {
-      date: DataTypes.DATE,
-      time: DataTypes.TIME
+      name: DataTypes.STRING
     },
     {}
   );

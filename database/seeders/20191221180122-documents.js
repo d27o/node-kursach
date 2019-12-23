@@ -13,29 +13,29 @@ module.exports = {
           name: "Приема-передачи",
           createdAt: new Date(),
           updatedAt: new Date(),
-          typeOfDocumentId: 3,
-          responsiblePersonId: 4
+          TypeOfDocumentId: 3,
+          ResponsiblePersonId: 4
         },
         {
           name: "О выдаче",
           createdAt: new Date(),
           updatedAt: new Date(),
-          typeOfDocumentId: 1,
-          responsiblePersonId: 4
+          TypeOfDocumentId: 1,
+          ResponsiblePersonId: 4
         },
         {
           name: "Направление на экспертизу",
           createdAt: new Date(),
           updatedAt: new Date(),
-          typeOfDocumentId: 2,
-          responsiblePersonId: 4
+          TypeOfDocumentId: 2,
+          ResponsiblePersonId: 4
         },
         {
           name: "На обслуживании",
           createdAt: new Date(),
           updatedAt: new Date(),
-          typeOfDocumentId: 2,
-          responsiblePersonId: 4
+          TypeOfDocumentId: 2,
+          ResponsiblePersonId: 4
         },
       ],
       {}

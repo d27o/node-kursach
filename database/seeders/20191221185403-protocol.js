@@ -12,31 +12,31 @@ module.exports = {
           name: 'Протокол осмотра места происшествия',
           createdAt: new Date(),
           updatedAt: new Date(),
-          placeId: 1
+          PlaceId: 1
         },
         {
           name: 'Протокол осмотра места происшествия',
           createdAt: new Date(),
           updatedAt: new Date(),
-          placeId: 2
+          PlaceId: 2
         },
         {
           name: 'Протокол осмотра места происшествия',
           createdAt: new Date(),
           updatedAt: new Date(),
-          placeId: 3
+          PlaceId: 3
         },
         {
           name: 'Протокол осмотра места происшествия',
           createdAt: new Date(),
           updatedAt: new Date(),
-          placeId: 4
+          PlaceId: 4
         },
         {
           name: 'Протокол осмотра места происшествия',
           createdAt: new Date(),
           updatedAt: new Date(),
-          placeId: 5
+          PlaceId: 5
         },
       ], {});
     
