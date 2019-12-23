@@ -19,30 +19,32 @@ exports.logout = function(req, res) {
 };
 
 exports.responsiblePeopleTable = function(req, res) {
-  let responsiblePerson = require("../../database/models").ResponsiblePerson;
-  responsiblePerson.findAll().then(function(person) {
+  require("../../database/models").ResponsiblePerson.findAll().then(function(person) {
     res.render("responsiblePeopleTable", {responsiblePeople: person});
   });
 }
 
 exports.citiesTable = function(req, res) {
-  let city = require("../../database/models").City;
-  city.findAll().then(function(city) {
+  require("../../database/models").City.findAll().then(function(city) {
     res.render("citiesTable", {cities: city});
   });
 }
 
 exports.addressesTable = function(req, res) {
-  let address = require("../../database/models").Address;
-  address.findAll().then(function(addresses) {
+  require("../../database/models").Address.findAll().then(function(addresses) {
     res.render("addressesTable", {addresses: addresses});
   });
 }
 
 exports.specializationsTable = function(req, res) {
-  let specialization = require("../../database/models").Specialization;
-  specialization.findAll().then(function(specializations) {
+  require("../../database/models").Specialization.findAll().then(function(specializations) {
     res.render("specializationsTable", {specializations: specializations});
+  });
+}
+
+exports.extraOptionsTable = function(req, res) {
+  require("../../database/models").ExtraOptions.findAll().then(function(extraOptions) {
+    res.render("extraOptionsTable", {extraOptions: extraOptions});
   });
 }
 
