@@ -48,6 +48,12 @@ exports.extraOptionsTable = function(req, res) {
   });
 }
 
+exports.positionsTable = function(req, res) {
+  require("../../database/models").Position.findAll().then(function(positions) {
+    res.render("positionsTable", {positions: positions});
+  });
+}
+
 exports.welcome = function(req, res) {
   res.render("welcome");
 };
