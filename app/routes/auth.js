@@ -34,4 +34,20 @@ module.exports = function(app, passport) {
   }
 
   app.get("/tables/responsiblePeople", isLoggedIn ,authController.responsiblePeopleTable)
+
+  app.get("/tables/cities", isLoggedIn ,authController.citiesTable)
+
+  app.get("/tables/addresses", isLoggedIn ,authController.addressesTable)
+
+  app.get("/tables/specializations", isLoggedIn ,authController.specializationsTable)
+
+  app.get("/tables/extraOptions", isLoggedIn ,authController.extraOptionsTable)
+
+  app.get("/tables/positions", isLoggedIn ,authController.positionsTable)
+  
+  app.get("/tables/witnesses", isLoggedIn ,authController.witnessesTable)
+
+  app.get("/tables/typeOfDocuments", isLoggedIn ,authController.typeOfDocumentsTable)
+
+  app.get("/tables/places", isLoggedIn ,authController.placesTable)
 };

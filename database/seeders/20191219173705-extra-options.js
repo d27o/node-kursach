@@ -13,55 +13,55 @@ module.exports = {
           experience: "4 года",
           createdAt: new Date(),
           updatedAt: new Date(),
-          specializationId: 1
+          SpecializationId: 1
         },
         {
           experience: "5 лет",
           createdAt: new Date(),
           updatedAt: new Date(),
-          specializationId: 2
+          SpecializationId: 2
         },
         {
           experience: "6 лет",
           createdAt: new Date(),
           updatedAt: new Date(),
-          specializationId: 3
+          SpecializationId: 3
         },
         {
           experience: "7 лет",
           createdAt: new Date(),
           updatedAt: new Date(),
-          specializationId: 4
+          SpecializationId: 4
         },
         {
           experience: "8 лет",
           createdAt: new Date(),
           updatedAt: new Date(),
-          specializationId: 5
+          SpecializationId: 5
         },
         {
           experience: "9 лет",
           createdAt: new Date(),
           updatedAt: new Date(),
-          specializationId: 6
+          SpecializationId: 6
         },
         {
           experience: "10 лет",
           createdAt: new Date(),
           updatedAt: new Date(),
-          specializationId: 7
+          SpecializationId: 7
         },
         {
           experience: "11 лет",
           createdAt: new Date(),
           updatedAt: new Date(),
-          specializationId: 8
+          SpecializationId: 8
         },
         {
           experience: "12 лет",
           createdAt: new Date(),
           updatedAt: new Date(),
-          specializationId: 9
+          SpecializationId: 9
         },
       ],
       {}

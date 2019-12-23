@@ -20,7 +20,7 @@ module.exports = {
       serialNumber: {
         type: Sequelize.STRING
       },
-      addressId: {
+      AddressId: {
         type: Sequelize.INTEGER,
         onDelete: "CASCADE",
         onUpdate: "CASCADE",

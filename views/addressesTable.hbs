@@ -1,0 +1,22 @@
+<div class="table-responsive">
+    <table class="table table-striped table-sm">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Улица</th>
+                <th>Дом</th>
+                <th>Квартира</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each addresses}}
+            <tr>
+                <td>{{this.id}}</td>
+                <td>{{this.street}}</td>
+                <td>{{this.home}}</td>
+                <td>{{this.flat}}</td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>

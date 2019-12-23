@@ -19,9 +19,56 @@ exports.logout = function(req, res) {
 };
 
 exports.responsiblePeopleTable = function(req, res) {
-  let responsiblePerson = require("../../database/models").ResponsiblePerson;
-  responsiblePerson.findAll().then(function(person) {
+  require("../../database/models").ResponsiblePerson.findAll().then(function(person) {
     res.render("responsiblePeopleTable", {responsiblePeople: person});
+  });
+}
+
+exports.citiesTable = function(req, res) {
+  require("../../database/models").City.findAll().then(function(city) {
+    res.render("citiesTable", {cities: city});
+  });
+}
+
+exports.addressesTable = function(req, res) {
+  require("../../database/models").Address.findAll().then(function(addresses) {
+    res.render("addressesTable", {addresses: addresses});
+  });
+}
+
+exports.specializationsTable = function(req, res) {
+  require("../../database/models").Specialization.findAll().then(function(specializations) {
+    res.render("specializationsTable", {specializations: specializations});
+  });
+}
+
+exports.extraOptionsTable = function(req, res) {
+  require("../../database/models").ExtraOptions.findAll().then(function(extraOptions) {
+    res.render("extraOptionsTable", {extraOptions: extraOptions});
+  });
+}
+
+exports.positionsTable = function(req, res) {
+  require("../../database/models").Position.findAll().then(function(positions) {
+    res.render("positionsTable", {positions: positions});
+  });
+}
+
+exports.witnessesTable = function(req, res) {
+  require("../../database/models").Witness.findAll().then(function(witnesses) {
+    res.render("witnessesTable", {witnesses: witnesses});
+  });
+}
+
+exports.typeOfDocumentsTable = function(req, res) {
+  require("../../database/models").TypeOfDocument.findAll().then(function(typeOfDocuments) {
+    res.render("typeOfDocumentsTable", {typeOfDocuments: typeOfDocuments});
+  });
+}
+
+exports.placesTable = function(req, res) {
+  require("../../database/models").Place.findAll().then(function(places) {
+    res.render("placesTable", {places: places});
   });
 }
 

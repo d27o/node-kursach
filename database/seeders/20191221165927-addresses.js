@@ -14,7 +14,7 @@ module.exports = {
        flat: "145",
        createdAt: new Date(),
        updatedAt: new Date(),
-       cityId: 1
+       CityId: 1
      },
      {
       street: "Галкина",
@@ -22,7 +22,7 @@ module.exports = {
       flat: "45",
       createdAt: new Date(),
       updatedAt: new Date(),
-      cityId: 2
+      CityId: 2
     },
     {
       street: "Волкова",
@@ -30,7 +30,7 @@ module.exports = {
       flat: "23",
       createdAt: new Date(),
       updatedAt: new Date(),
-      cityId: 3
+      CityId: 3
     },
     {
       street: "Вавилова",
@@ -38,7 +38,7 @@ module.exports = {
       flat: "106",
       createdAt: new Date(),
       updatedAt: new Date(),
-      cityId: 4
+      CityId: 4
     },
     {
       street: "Громова",
@@ -46,7 +46,7 @@ module.exports = {
       flat: "99",
       createdAt: new Date(),
       updatedAt: new Date(),
-      cityId: 5
+      CityId: 5
     },
     {
       street: "Курильская",
@@ -54,7 +54,7 @@ module.exports = {
       flat: "34",
       createdAt: new Date(),
       updatedAt: new Date(),
-      cityId: 6
+      CityId: 6
     },
     {
       street: "Ленина",
@@ -62,7 +62,7 @@ module.exports = {
       flat: "185",
       createdAt: new Date(),
       updatedAt: new Date(),
-      cityId: 7
+      CityId: 7
     },
     {
       street: "Победы",
@@ -70,7 +70,7 @@ module.exports = {
       flat: "18",
       createdAt: new Date(),
       updatedAt: new Date(),
-      cityId: 8
+      CityId: 8
     },
     {
       street: "Проспект Мира",
@@ -78,7 +78,7 @@ module.exports = {
       flat: "134",
       createdAt: new Date(),
       updatedAt: new Date(),
-      cityId: 9
+      CityId: 9
     },
  ], {});
   },
