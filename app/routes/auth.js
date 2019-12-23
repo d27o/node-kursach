@@ -50,4 +50,6 @@ module.exports = function(app, passport) {
   app.get("/tables/typeOfDocuments", isLoggedIn ,authController.typeOfDocumentsTable)
 
   app.get("/tables/places", isLoggedIn ,authController.placesTable)
+
+  app.get("/tables/protocols", isLoggedIn ,authController.protocolsTable)
 };

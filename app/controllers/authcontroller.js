@@ -72,6 +72,12 @@ exports.placesTable = function(req, res) {
   });
 }
 
+exports.protocolsTable = function(req, res) {
+  require("../../database/models").Protocol.findAll().then(function(protocols) {
+    res.render("protocolsTable", {protocols: protocols});
+  });
+}
+
 exports.welcome = function(req, res) {
   res.render("welcome");
 };
