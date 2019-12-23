@@ -1,5 +1,5 @@
 <div class="jumbotron text-center">
-  <h1 class="display-5"><span class="color-symb">А</span>втомазированная <span class="color-symb">С</span>истема <span class="color-symb">У</span>чета <span class="color-symb">В</span>ещественных <span class="color-symb">Д</span>оказательств</h1>
+  <h1 class="display-5 welcome-text"><span class="color-symb">А</span><span class="uncolor-symb">втомазированная</span> <span class="color-symb">С</span><span class="uncolor-symb">истема</span> <span class="color-symb">У</span><span class="uncolor-symb">чета</span> <span class="color-symb">В</span><span class="uncolor-symb">ещественных</span> <span class="color-symb">Д</span><span class="uncolor-symb">оказательств</span></h1>
   <h2 class="lead">
     Вы вошли в систему !
   </h2>
@@ -7,5 +7,20 @@
 <style>
   .color-symb {
     color: #007bff;
+    opacity: 1;
+    -webkit-transition: 1s;
+  }
+  .uncolor-symb {
+    opacity: 1;
+    -webkit-transition: 1s;
+  }
+  .welcome-text:hover .uncolor-symb {
+    position: absolute;
+    opacity: 0;
+    transition: 1s;
+  }
+  .welcome-text:hover .color-symb {
+    transition: 1s;
+    font-size: 100px;
   }
 </style>
