@@ -17,3 +17,10 @@ exports.logout = function(req, res) {
     res.redirect("/");
   });
 };
+
+exports.responsiblePeopleTable = function(req, res) {
+  let responsiblePerson = require("../../database/models").ResponsiblePerson;
+  responsiblePerson.findAll().then(function(person) {
+    res.render("responsiblePeopleTable", {responsiblePeople: person});
+  });
+}

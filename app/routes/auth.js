@@ -30,4 +30,6 @@ module.exports = function(app, passport) {
 
     res.redirect("/login");
   }
+
+  app.get("/tables/responsiblePeople", isLoggedIn ,authController.responsiblePeopleTable)
 };
