@@ -66,6 +66,12 @@ exports.typeOfDocumentsTable = function(req, res) {
   });
 }
 
+exports.placesTable = function(req, res) {
+  require("../../database/models").Place.findAll().then(function(places) {
+    res.render("placesTable", {places: places});
+  });
+}
+
 exports.welcome = function(req, res) {
   res.render("welcome");
 };

@@ -3,14 +3,18 @@
         <thead>
             <tr>
                 <th>#</th>
-                <th>Специальность</th>
+                <th>Наименование</th>
+                <th>Дата осмотра</th>
+                <th>Описание</th>
             </tr>
         </thead>
         <tbody>
-            {{#each specializations}}
+            {{#each places}}
             <tr>
                 <td>{{this.id}}</td>
                 <td>{{this.name}}</td>
+                <td>{{this.insepctionDate}}</td>
+                <td>{{this.description}}</td>
             </tr>
             {{/each}}
         </tbody>
