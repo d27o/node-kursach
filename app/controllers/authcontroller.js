@@ -54,6 +54,12 @@ exports.positionsTable = function(req, res) {
   });
 }
 
+exports.witnessesTable = function(req, res) {
+  require("../../database/models").Witness.findAll().then(function(witnesses) {
+    res.render("witnessesTable", {witnesses: witnesses});
+  });
+}
+
 exports.welcome = function(req, res) {
   res.render("welcome");
 };

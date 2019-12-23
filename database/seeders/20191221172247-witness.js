@@ -14,7 +14,7 @@ module.exports = {
           surname: "Огурцев",
           patronymic: "Андреевич",
           serialNumber: "4504 365418",
-          addressId: "1",
+          AddressId: "1",
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -23,7 +23,7 @@ module.exports = {
           surname: "Петров",
           patronymic: "Олегович",
           serialNumber: "4534 353418",
-          addressId: "2",
+          AddressId: "2",
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -32,7 +32,7 @@ module.exports = {
           surname: "Петухов",
           patronymic: "Олегович",
           serialNumber: "4544 534418",
-          addressId: "3",
+          AddressId: "3",
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -41,7 +41,7 @@ module.exports = {
           surname: "Ламов",
           patronymic: "Альбертович",
           serialNumber: "4504 365418",
-          addressId: "4",
+          AddressId: "4",
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -50,7 +50,7 @@ module.exports = {
           surname: "Лягушкин",
           patronymic: "Сергеевич",
           serialNumber: "5423 456345",
-          addressId: "5",
+          AddressId: "5",
           createdAt: new Date(),
           updatedAt: new Date()
         },
@@ -59,7 +59,7 @@ module.exports = {
           surname: "Морозов",
           patronymic: "Макарович",
           serialNumber: "3453 654384",
-          addressId: "6",
+          AddressId: "6",
           createdAt: new Date(),
           updatedAt: new Date()
         },
