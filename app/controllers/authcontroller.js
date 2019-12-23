@@ -78,6 +78,12 @@ exports.protocolsTable = function(req, res) {
   });
 }
 
+exports.documentsTable = function(req, res) {
+  require("../../database/models").Document.findAll().then(function(documents) {
+    res.render("documentsTable", {documents: documents});
+  });
+}
+
 exports.welcome = function(req, res) {
   res.render("welcome");
 };
