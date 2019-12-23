@@ -9,7 +9,7 @@ exports.login = function(req, res) {
 };
 
 exports.home = function(req, res) {
-  res.render("home");
+  res.render("home", {layout: "loginMain"});
 };
 
 exports.logout = function(req, res) {
@@ -24,3 +24,7 @@ exports.responsiblePeopleTable = function(req, res) {
     res.render("responsiblePeopleTable", {responsiblePeople: person});
   });
 }
+
+exports.welcome = function(req, res) {
+  res.render("welcome");
+};

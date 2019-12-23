@@ -13,14 +13,16 @@ module.exports = function(app, passport) {
 //     })
 //   );
 
-  app.get("/home", isLoggedIn, authController.home);
+  app.get("/", authController.home);
 
   app.get("/logout", authController.logout);
+
+  app.get("/welcome", isLoggedIn, authController.welcome)
 
   app.post(
     "/login",
     passport.authenticate("local-login", {
-      successRedirect: "/home",
+      successRedirect: "/welcome",
       failureRedirect: "/login"
     })
   );
