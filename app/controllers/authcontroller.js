@@ -25,6 +25,20 @@ exports.responsiblePeopleTable = function(req, res) {
   });
 }
 
+exports.citiesTable = function(req, res) {
+  let city = require("../../database/models").City;
+  city.findAll().then(function(city) {
+    res.render("citiesTable", {cities: city});
+  });
+}
+
+exports.addressesTable = function(req, res) {
+  let address = require("../../database/models").Address;
+  address.findAll().then(function(addresses) {
+    res.render("addressesTable", {addresses: addresses});
+  });
+}
+
 exports.welcome = function(req, res) {
   res.render("welcome");
 };

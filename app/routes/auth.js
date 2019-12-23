@@ -34,4 +34,8 @@ module.exports = function(app, passport) {
   }
 
   app.get("/tables/responsiblePeople", isLoggedIn ,authController.responsiblePeopleTable)
+
+  app.get("/tables/cities", isLoggedIn ,authController.citiesTable)
+
+  app.get("/tables/addresses", isLoggedIn ,authController.addressesTable)
 };
