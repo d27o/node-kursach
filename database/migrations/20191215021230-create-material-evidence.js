@@ -22,7 +22,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
-      typeOfMaterialEvidenceId: {
+      TypeOfMaterialEvidenceId: {
         type: Sequelize.INTEGER,
         onDelete: "CASCADE",
         onUpdate: "CASCADE",
@@ -32,7 +32,7 @@ module.exports = {
           key: 'id'
         }
       },
-      protocolId: {
+      ProtocolId: {
         type: Sequelize.INTEGER,
         onDelete: "CASCADE",
         onUpdate: "CASCADE",

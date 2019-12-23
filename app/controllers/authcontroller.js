@@ -90,6 +90,12 @@ exports.typeOfMaterialEvidencesTable = function(req, res) {
   });
 }
 
+exports.materialEvidencesTable = function(req, res) {
+  require("../../database/models").MaterialEvidence.findAll().then(function(materialEvidences) {
+    res.render("materialEvidencesTable", {materialEvidences: materialEvidences});
+  });
+}
+
 exports.welcome = function(req, res) {
   res.render("welcome");
 };
