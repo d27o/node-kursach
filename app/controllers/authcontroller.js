@@ -19,7 +19,18 @@ exports.logout = function(req, res) {
 };
 
 exports.responsiblePeopleTable = function(req, res) {
-  require("../../database/models").ResponsiblePerson.findAll().then(function(person) {
+  require("../../database/models").ResponsiblePerson.findAll({
+    include: [{
+      model: require("../../database/models").Position
+    },
+    {
+      model: require("../../database/models").ExtraOptions,
+      include: [{
+        model: require("../../database/models").Specialization
+      }]
+    }
+  ]
+  }).then(function(person) {
     res.render("responsiblePeopleTable", {responsiblePeople: person});
   });
 }
