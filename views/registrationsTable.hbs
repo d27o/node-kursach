@@ -1,22 +1,44 @@
-<div class="table-responsive">
-    <table class="table table-striped table-sm">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Дата регистрации</th>
-                <th>Отметка целостности</th>
-                <th>Заметка</th>
-            </tr>
-        </thead>
-        <tbody>
-            {{#each registrations}}
-            <tr>
-                <td>{{this.id}}</td>
-                <td>{{this.acceptDate}}</td>
-                <td>{{this.integrityMark}}</td>
-                <td>{{this.note}}</td>
-            </tr>
-            {{/each}}
-        </tbody>
-    </table>
+<div class="container">
+    <div class="row">
+        {{#each registrations}}
+        <div class="col-sm-12 mt-3 mb-3">
+             <div class="card" >
+                <!-- Шапка с навигацией -->
+                <div class="card-header">
+                    <ul class="nav nav-tabs card-header-tabs">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#reg{{this.id}}">Запись о регистрации</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#evidence{{this.id}}">Вещественное доказательство</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " data-toggle="tab" href="#person{{this.id}}">Лицо регистрирующее вещественное доказательство</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Текстовый контент -->
+                <div class="card-body tab-content">
+                    <div class="tab-pane fade show active" id="reg{{this.id}}">
+                        <h4 class="card-title">Запись регистрации № {{this.id}}</h4>
+                        <p class="card-text">Дата регистрации: {{this.acceptDate}}</p>
+                        <p class="card-text">Отметка о целостности: {{this.integrityMark}}</p>
+                        <p class="card-text">Заметка: {{this.note}}</p>
+                    </div>
+                    <div class="tab-pane fade" id="evidence{{this.id}}">
+                        <h4 class="card-title">Вещественное доказательство</h4>
+                        <p class="card-text">Наименование вещественного доказательства: {{this.MaterialEvidence.name}}</p>
+                        <p class="card-text">Состояние вещественного доказательство: {{this.MaterialEvidence.state}}</p>
+                        <p class="card-text">Тип вещественного доказательства: {{this.MaterialEvidence.TypeOfMaterialEvidence.name}}</p>
+                    </div>
+                    <div class="tab-pane fade" id="person{{this.id}}">
+                        <h4 class="card-title">Лицо регистрирующее вещественное доказательство</h4>
+                        <p class="card-text">Ф.И.О: {{this.ResponsiblePerson.lastname}} {{this.ResponsiblePerson.name}} {{this.ResponsiblePerson.patronymicName}}</p>
+                        <p class="card-text">Должность: {{this.ResponsiblePerson.Position.name}}</p>
+                    </div>
+                </div>
+            </div><!-- Конец карточки -->
+        </div>
+        {{/each}}
+    </div>
 </div>
