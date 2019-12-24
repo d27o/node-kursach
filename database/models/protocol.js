@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
     // protocol belongns to many to witness
     Protocol.belongsToMany(models.Witness, {
       through: "ProtocolWitness",
-      foreignKey: "protocolId"
+      foreignKey: "ProtocolId"
     });
 
   Protocol.hasMany(models.MaterialEvidence);

@@ -106,7 +106,35 @@ exports.placesTable = function(req, res) {
 
 exports.protocolsTable = function(req, res) {
   require("../../database/models")
-    .Protocol.findAll()
+    .Protocol.findAll({
+      include: [
+        {
+          model: require("../../database/models").MaterialEvidence,
+          include: [
+            {
+              model: require("../../database/models").TypeOfMaterialEvidence
+            }
+          ]
+        },
+        {
+          model: require("../../database/models").Place
+        },
+        {
+          model: require("../../database/models").Witness,
+          through: require("../../database/models").ProtocolWitness,
+          include: [
+            {
+              model: require("../../database/models").Address,
+              include: [
+                {
+                  model: require("../../database/models").City
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    })
     .then(function(protocols) {
       res.render("protocolsTable", { protocols: protocols });
     });

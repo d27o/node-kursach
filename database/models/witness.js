@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
 
     Witness.belongsToMany(models.Protocol, {
       through: "ProtocolWitness",
-      foreignKey: "witnessId"
+      foreignKey: "WitnessId"
     });
 
     // witness to belong adress

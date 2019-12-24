@@ -20,21 +20,29 @@
                 <!-- Текстовый контент -->
                 <div class="card-body tab-content">
                     <div class="tab-pane fade show active" id="reg{{this.id}}">
-                        <h4 class="card-title">Запись регистрации № {{this.id}}</h4>
-                        <p class="card-text">Дата регистрации: {{this.acceptDate}}</p>
-                        <p class="card-text">Отметка о целостности: {{this.integrityMark}}</p>
-                        <p class="card-text">Заметка: {{this.note}}</p>
+                        <h2 class="card-title">Запись регистрации № {{this.id}}</h2>
+                        <h4 class="card-title">Дата регистрации</h4>
+                        <p class="card-text">{{this.acceptDate}}</p>
+                        <h4 class="card-title">Отметка о целостности</h4>
+                        <p class="card-text">{{this.integrityMark}}</p>
+                        <h4 class="card-title">Заметка</h4>
+                        <p class="card-text">{{this.note}}</p>
                     </div>
                     <div class="tab-pane fade" id="evidence{{this.id}}">
-                        <h4 class="card-title">Вещественное доказательство</h4>
-                        <p class="card-text">Наименование вещественного доказательства: {{this.MaterialEvidence.name}}</p>
-                        <p class="card-text">Состояние вещественного доказательство: {{this.MaterialEvidence.state}}</p>
-                        <p class="card-text">Тип вещественного доказательства: {{this.MaterialEvidence.TypeOfMaterialEvidence.name}}</p>
+                        <h2 class="card-title">Вещественное доказательство</h2>
+                        <h4 class="card-title">Наименование вещественного доказательства</h4>
+                        <p class="card-text">{{this.MaterialEvidence.name}}</p>
+                        <h4 class="card-title">Состояние вещественного доказательства</h4>
+                        <p class="card-text">{{this.MaterialEvidence.state}}</p>
+                        <h4 class="card-title">Тип вещественного доказательства</h4>
+                        <p class="card-text">{{this.MaterialEvidence.TypeOfMaterialEvidence.name}}</p>
                     </div>
                     <div class="tab-pane fade" id="person{{this.id}}">
                         <h4 class="card-title">Лицо регистрирующее вещественное доказательство</h4>
-                        <p class="card-text">Ф.И.О: {{this.ResponsiblePerson.lastname}} {{this.ResponsiblePerson.name}} {{this.ResponsiblePerson.patronymicName}}</p>
-                        <p class="card-text">Должность: {{this.ResponsiblePerson.Position.name}}</p>
+                        <h4 class="card-title">Ф.И.О</h4>
+                        <p class="card-text">{{this.ResponsiblePerson.lastName}} {{this.ResponsiblePerson.name}} {{this.ResponsiblePerson.patronymicName}}</p>
+                        <h4 class="card-title">Должность</h4>
+                        <p class="card-text">{{this.ResponsiblePerson.Position.name}}</p>
                     </div>
                 </div>
             </div><!-- Конец карточки -->
