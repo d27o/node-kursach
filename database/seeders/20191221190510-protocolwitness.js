@@ -9,40 +9,40 @@ module.exports = {
       
       return queryInterface.bulkInsert('ProtocolWitnesses', [
         {
-          witnessId: 1,
+          WitnessId: 1,
           createdAt: new Date(),
           updatedAt: new Date(),
-          protocolId: 1
+          ProtocolId: 1
         },
         {
-          witnessId: 2,
+          WitnessId: 2,
           createdAt: new Date(),
           updatedAt: new Date(),
-          protocolId: 1,
+          ProtocolId: 1,
         },
         {
-          witnessId: 3,
+          WitnessId: 3,
           createdAt: new Date(),
           updatedAt: new Date(),
-          protocolId: 1
+          ProtocolId: 1
         },
         {
-          witnessId: 4,
+          WitnessId: 4,
           createdAt: new Date(),
           updatedAt: new Date(),
-          protocolId: 2
+          ProtocolId: 2
         },
         {
-          witnessId: 5,
+          WitnessId: 5,
           createdAt: new Date(),
           updatedAt: new Date(),
-          protocolId: 2
+          ProtocolId: 2
         },
         {
-          witnessId: 1,
+          WitnessId: 1,
           createdAt: new Date(),
           updatedAt: new Date(),
-          protocolId: 2
+          ProtocolId: 2
         },
     ], {});
 

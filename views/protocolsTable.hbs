@@ -1,18 +1,67 @@
-<div class="table-responsive">
-    <table class="table table-striped table-sm">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Наименование протокола</th>
-            </tr>
-        </thead>
-        <tbody>
-            {{#each protocols}}
-            <tr>
-                <td>{{this.id}}</td>
-                <td>{{this.name}}</td>
-            </tr>
+<div class="container">
+    <div class="row">
+        {{#each protocols}}
+        <div class="col-sm-12 mt-3 mb-3">
+            <div class="card">
+                <!-- Шапка с навигацией -->
+                <div class="card-header">
+                    <h2>{{this.name}} № {{this.id}}</h2>
+                    <ul class="nav nav-tabs card-header-tabs">
+                        <li class="nav-item active">
+                            <a class="nav-link " data-toggle="tab" href="#place{{this.id}}">Место</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#evidence{{this.id}}">Вещественные
+                                доказательства</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " data-toggle="tab" href="#witness{{this.id}}">Понятые</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Текстовый контент -->
+                <div class="card-body tab-content">
+                    <div class="tab-pane fade show active" id="place{{this.id}}">
+                        <h4 class="card-title">Наименование места</h4>
+                        <p class="card-text">{{this.Place.name}}</p>
+                        <h4 class="card-title">Дата осмотра</h4>
+                        <p class="card-text">{{this.Place.insepctionDate}}</p>
+                        <h4 class="card-title">Описание места осмотра</h4>
+                        <p class="card-text">{{this.Place.description}}</p>
+                    </div>
+                    <div class="tab-pane fade" id="evidence{{this.id}}">
+                        {{#each this.MaterialEvidences}}
+                        <div class="card mt-3 mb-3">
+                            <h4 class="card-header">Вещественное доказательство № {{this.id}}</h4>
+                            <div class="card-body">
+                                <h4 class="card-title">Наименование вещественного доказательства</h4>
+                                <p class="card-text">{{this.name}}</p>
+                                <h4 class="card-title">Состояние вещественного доказательства</h4>
+                                <p class="card-text">{{this.state}}</p>
+                                <h4 class="card-title">Тип вещественного доказательства</h4>
+                                <p class="card-text">
+                                    {{this.TypeOfMaterialEvidence.name}}
+                                </p>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                    <div class="tab-pane fade" id="witness{{this.id}}">
+                        {{#each this.Witnesses}}
+                        <div class="card mt-3 mb-3">
+                            <h4 class="card-header">{{this.name}} {{this.patronymic}} {{this.surname}}</h4>
+                            <div class="card-body">
+                                <h4 class="card-title">Серия и номер паспорта</h4>
+                                <p class="card-text">{{this.serialNumber}}</p>
+                                <h4 class="card-title">Адрес</h4>
+                                <p class="card-text">Город: {{this.Address.City.name}} Улица: {{this.Address.street}}
+                                    Дом: {{this.Address.home}} Квартира: {{this.Address.flat}}</p>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div><!-- Конец карточки -->
+            </div>
             {{/each}}
-        </tbody>
-    </table>
-</div>
+        </div>
+    </div>

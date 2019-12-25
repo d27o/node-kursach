@@ -1,11 +1,11 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const Protocolwitness = sequelize.define('Protocolwitness', {
-    protocolId: DataTypes.INTEGER,
-    witnessId: DataTypes.INTEGER
+  const ProtocolWitness = sequelize.define('ProtocolWitness', {
+    ProtocolId: DataTypes.INTEGER,
+    WitnessId: DataTypes.INTEGER
   }, {});
-  Protocolwitness.associate = function(models) {
+  ProtocolWitness.associate = function(models) {
     // associations can be defined here
   };
-  return Protocolwitness;
+  return ProtocolWitness;
 };
