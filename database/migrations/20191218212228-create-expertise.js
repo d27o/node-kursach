@@ -14,7 +14,7 @@ module.exports = {
       conclusion: {
         type: Sequelize.STRING
       },
-      responsiblePersonId: {
+      ResponsiblePersonId: {
         type: Sequelize.INTEGER,
         onDelete: "CASCADE",
         onUpdate: "CASCADE",
@@ -24,7 +24,7 @@ module.exports = {
           key: 'id'
         }
       },
-      criminalCaseId: {
+      CriminalCaseId: {
         type: Sequelize.INTEGER,
         onDelete: "CASCADE",
         onUpdate: "CASCADE",
@@ -34,7 +34,7 @@ module.exports = {
           key: 'id'
         }
       },
-      materialEvidenceId: {
+      MaterialEvidenceId: {
         type: Sequelize.INTEGER,
         onDelete: "CASCADE",
         onUpdate: "CASCADE",

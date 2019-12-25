@@ -1,0 +1,75 @@
+<div class="container">
+    <div class="row">
+        {{#each extraditions}}
+        <div class="col-sm-12 mt-3 mb-3">
+            <div class="card">
+                <!-- Шапка с навигацией -->
+                <div class="card-header">
+                    <h2>Запись о выдаче № {{this.id}}</h2>
+                    <ul class="nav nav-tabs card-header-tabs">
+                        <li class="nav-item active">
+                            <a class="nav-link " data-toggle="tab" href="#extradition{{this.id}}">Выдача</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#document{{this.id}}">Основание выдачи</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " data-toggle="tab" href="#extraditionPerson{{this.id}}">Лицо получившее
+                                вещественное доказательство</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " data-toggle="tab" href="#registration{{this.id}}">Запись о
+                                регистрациии</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " data-toggle="tab" href="#evidence{{this.id}}">Вещественное
+                                доказательство</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Текстовый контент -->
+                <div class="card-body tab-content">
+                    <div class="tab-pane fade show active" id="extradition{{this.id}}">
+                        <h4 class="card-title">Дата выдачи</h4>
+                        <p class="card-text">{{this.dateOfExtradition}}</p>
+                        <h4 class="card-title">Отметка о целостности</h4>
+                        <p class="card-text">{{this.integrityMark}}</p>
+                        <h4 class="card-title">Заметка</h4>
+                        <p class="card-text">{{this.note}}</p>
+                    </div>
+                    <div class="tab-pane fade" id="document{{this.id}}">
+                        <h4 class="card-title">Наименование документа</h4>
+                        <p class="card-text">{{this.Document.name}}</p>
+                        <h4 class="card-title">Тип документа</h4>
+                        <p class="card-text">{{this.Document.TypeOfDocument.name}}</p>
+                        <h4 class="card-title">Подписан</h4>
+                        <p class="card-text">{{this.Document.ResponsiblePerson.name}}
+                            {{this.Document.ResponsiblePerson.patronymicName}}
+                            {{this.Document.ResponsiblePerson.lastName}}</p>
+                    </div>
+                    <div class="tab-pane fade" id="extraditionPerson{{this.id}}">
+                        <h4 class="card-title">Ф.И.О</h4>
+                        <p class="card-text">{{this.ResponsiblePerson.name}}
+                            {{this.ResponsiblePerson.patronymicName}}
+                            {{this.ResponsiblePerson.lastName}}</p>
+                        <h4 class="card-title">Должность</h4>
+                        <p class="card-text">{{this.ResponsiblePerson.Position.name}}</p>
+                    </div>
+                    <div class="tab-pane fade" id="registration{{this.id}}">
+                        <h4 class="card-title">Дата регистрации</h4>
+                        <p class="card-text">{{this.Registration.acceptDate}}</p>
+                        <h4 class="card-title">Отметка о целостности</h4>
+                        <p class="card-text">{{this.Registration.integrityMark}}</p>
+                        <h4 class="card-title">Заметка</h4>
+                        <p class="card-text">{{this.Registration.note}}</p>
+                        <h3 class="card-title">Информация о лице регистрирующим документ</h3>
+                        <h4 class="card-title">Ф.И.О</h4>
+                        <p class="card-text">{{this.Registration.ResponsiblePerson.name}} {{this.Registration.ResponsiblePerson.patronymicName}} {{this.Registration.ResponsiblePerson.lastName}}</p>
+                        <h4 class="card-title">Должность</h4>
+                        <p class="card-text">{{this.Registration.ResponsiblePerson.Position.name}}</p>
+                    </div>
+                </div><!-- Конец карточки -->
+            </div>
+            {{/each}}
+        </div>
+    </div>

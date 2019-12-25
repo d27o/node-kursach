@@ -8,7 +8,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      criminalCaseId: {
+      CriminalCaseId: {
         type: Sequelize.INTEGER,
         onDelete: "CASCADE",
         onUpdate: "CASCADE",
@@ -18,7 +18,7 @@ module.exports = {
           key: 'id'
         }    
       },
-      materialEvidenceId: {
+      MaterialEvidenceId: {
         type: Sequelize.INTEGER,
         onDelete: "CASCADE",
         onUpdate: "CASCADE",

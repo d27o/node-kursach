@@ -14,9 +14,9 @@ module.exports = {
           note: 'Выдан без притензий',
           createdAt: new Date(),
           updatedAt: new Date(),
-          responsiblePersonId: 2,
-          registrationId: 1,
-          documentId: 1
+          ResponsiblePersonId: 2,
+          RegistrationId: 1,
+          DocumentId: 1
         },
         {
           dateOfExtradition: new Date(2019, 11, 12, 21, 20),
@@ -24,9 +24,9 @@ module.exports = {
           note: 'Выдан без притензий',
           createdAt: new Date(),
           updatedAt: new Date(),
-          responsiblePersonId: 2,
-          registrationId: 2,
-          documentId: 2
+          ResponsiblePersonId: 2,
+          RegistrationId: 2,
+          DocumentId: 2
         },
         {
           dateOfExtradition: new Date(2019, 11, 10, 22, 20),
@@ -34,9 +34,9 @@ module.exports = {
           note: 'Выдан без притензий',
           createdAt: new Date(),
           updatedAt: new Date(),
-          responsiblePersonId: 1,
-          registrationId: 3,
-          documentId: 3
+          ResponsiblePersonId: 1,
+          RegistrationId: 3,
+          DocumentId: 3
         },
         {
           dateOfExtradition: new Date(2019, 11, 11, 18, 20),
@@ -44,9 +44,9 @@ module.exports = {
           note: 'Выдан без притензий',
           createdAt: new Date(),
           updatedAt: new Date(),
-          responsiblePersonId: 3,
-          registrationId: 4,
-          documentId: 4
+          ResponsiblePersonId: 3,
+          RegistrationId: 4,
+          DocumentId: 4
         }
       ], {});
     

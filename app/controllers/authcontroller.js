@@ -76,17 +76,17 @@ exports.protocolsTable = function(req, res) {
     });
 };
 
-
-
 exports.registrationsTable = function(req, res) {
   require("../../database/models")
     .Registration.findAll({
       include: [
         {
           model: require("../../database/models").ResponsiblePerson,
-          include: [{
-            model: require("../../database/models").Position
-          }]
+          include: [
+            {
+              model: require("../../database/models").Position
+            }
+          ]
         },
         {
           model: require("../../database/models").MaterialEvidence,
@@ -105,4 +105,55 @@ exports.registrationsTable = function(req, res) {
 
 exports.welcome = function(req, res) {
   res.render("welcome");
+};
+
+exports.extraditionsTable = function(req, res) {
+  require("../../database/models")
+    .Extradition.findAll({
+      include: [
+        {
+          model: require("../../database/models").Document,
+          include: [
+            {
+              model: require("../../database/models").TypeOfDocument
+            },
+            {
+              model: require("../../database/models").ResponsiblePerson
+            }
+          ]
+        },
+        {
+          model: require("../../database/models").ResponsiblePerson,
+          include: [
+            {
+              model: require("../../database/models").Position
+            }
+          ]
+        },
+        {
+          model: require("../../database/models").Registration,
+          include: [
+            {
+              model: require("../../database/models").ResponsiblePerson,
+              include: [
+                {
+                  model: require("../../database/models").Position
+                }
+              ]
+            },
+            {
+              model: require("../../database/models").MaterialEvidence,
+              include: [
+                {
+                  model: require("../../database/models").TypeOfMaterialEvidence
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    })
+    .then(function(extraditions) {
+      res.render("extraditionsTable", { extraditions: extraditions });
+    });
 };
