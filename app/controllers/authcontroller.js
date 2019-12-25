@@ -157,3 +157,53 @@ exports.extraditionsTable = function(req, res) {
       res.render("extraditionsTable", { extraditions: extraditions });
     });
 };
+
+exports.criminalCaseTable = function(req, res) {
+  require("../../database/models")
+    .CriminalCase.findAll({
+      include: [
+        {
+          model: require("../../database/models").MaterialEvidence,
+          through: require("../../database/models")
+            .CriminalCaseMaterialEvidence,
+          include: [
+            {
+              model: require("../../database/models").TypeOfMaterialEvidence
+            }
+          ]
+        },
+        {
+          model: require("../../database/models").Expertise,
+          include: [
+            {
+              model: require("../../database/models").ResponsiblePerson,
+              include: [
+                {
+                  model: require("../../database/models").Position
+                },
+                {
+                  model: require("../../database/models").ExtraOptions,
+                  include: [
+                    {
+                      model: require("../../database/models").Specialization
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              model: require("../../database/models").MaterialEvidence,
+              include: [
+                {
+                  model: require("../../database/models").TypeOfMaterialEvidence
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    })
+    .then(function(criminalCases) {
+      res.render("criminalCaseTable", { criminalCases: criminalCases });
+    });
+};

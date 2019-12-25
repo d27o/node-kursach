@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
     // One Material has Many Expertise
     models.MaterialEvidence.belongsToMany(models.CriminalCase, {
       through: "CriminalCaseMaterialEvidence",
-      foreignKey: "materialEvidenceId"
+      foreignKey: "MaterialEvidenceId"
     });
     // Many Material Evidence belongs to Many Criminal Cases
   };
