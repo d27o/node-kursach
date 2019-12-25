@@ -44,6 +44,18 @@ module.exports = {
           updatedAt: new Date(),
           ProtocolId: 2
         },
+        {
+          WitnessId: 6,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+          ProtocolId: 3
+        },
+        {
+          WitnessId: 7,
+          createdAt: new Date(),
+          updatedAt: new Date(),
+          ProtocolId: 3
+        },
     ], {});
 
   },

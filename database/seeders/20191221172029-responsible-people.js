@@ -47,7 +47,36 @@ module.exports = {
           updatedAt: new Date(),
           PositionId: 3,
           AddressId: 1
-        }
+        },
+        {
+          name: "Игорь",
+          patronymicName: "Денисович",
+          lastName: "Котливец",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+          PositionId: 2,
+          AddressId: 6
+        },
+        {
+          name: "Ирина",
+          patronymicName: "Алексеевна",
+          lastName: "Иванова",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+          ExtraOptionId: 3,
+          PositionId: 1,
+          AddressId: 7
+        },
+        {
+          name: "Валерия",
+          patronymicName: "Яблокова",
+          lastName: "Игоревна",
+          createdAt: new Date(),
+          updatedAt: new Date(),
+          ExtraOptionId: 4,
+          PositionId: 1,
+          AddressId: 8
+        },
       ],
       {}
     );
