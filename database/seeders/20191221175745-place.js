@@ -42,7 +42,29 @@ module.exports = {
         description: 'Фудкорт ТЦ Звездочка',
         createdAt: new Date(),
         updatedAt: new Date(),
-      },], {});
+      },
+      {
+        name: 'Детский дом',
+        insepctionDate: new Date(2019, 5, 6, 12, 0),
+        description: 'Детский дом имени Ленина',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        name: 'Собачий приют',
+        insepctionDate: new Date(2019, 6, 4, 11, 0),
+        description: 'Собачий приют рядом с лосиным заповедником',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        name: 'Притон',
+        insepctionDate: new Date(2019, 8, 6, 8, 0),
+        description: 'Притон расположенный в дворце пионеров',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+    ], {});
   },
 
   down: (queryInterface, Sequelize) => {

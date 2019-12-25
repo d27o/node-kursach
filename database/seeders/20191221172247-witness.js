@@ -63,6 +63,15 @@ module.exports = {
           createdAt: new Date(),
           updatedAt: new Date()
         },
+        {
+          name: "Омар",
+          surname: "Омаров",
+          patronymic: "Омарович",
+          serialNumber: "3423 65474",
+          AddressId: "7",
+          createdAt: new Date(),
+          updatedAt: new Date()
+        },
     ], {});
   },
 

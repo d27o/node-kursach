@@ -38,6 +38,24 @@ module.exports = {
           updatedAt: new Date(),
           PlaceId: 5
         },
+        {
+          name: 'Протокол осмотра места происшествия',
+          createdAt: new Date(),
+          updatedAt: new Date(),
+          PlaceId: 6
+        },
+        {
+          name: 'Протокол осмотра места происшествия',
+          createdAt: new Date(),
+          updatedAt: new Date(),
+          PlaceId: 7
+        },
+        {
+          name: 'Протокол осмотра места происшествия',
+          createdAt: new Date(),
+          updatedAt: new Date(),
+          PlaceId: 8
+        },
       ], {});
     
   },
