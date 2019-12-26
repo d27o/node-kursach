@@ -5,7 +5,10 @@
             <div class="card">
                 <!-- Шапка с навигацией -->
                 <div class="card-header">
-                    <h2>Запись о выдаче № {{this.id}}</h2>
+                    <h2>Запись о выдаче № {{this.id}} <button type="button" class="btn btn-danger mx-auto"
+                            onclick="remove({{this.id}})">
+                            Удалить
+                        </button></h2>
                     <ul class="nav nav-tabs card-header-tabs">
                         <li class="nav-item active">
                             <a class="nav-link " data-toggle="tab" href="#extradition{{this.id}}">Выдача</a>
@@ -64,7 +67,9 @@
                         <p class="card-text">{{this.Registration.note}}</p>
                         <h3 class="card-title">Информация о лице регистрирующим документ</h3>
                         <h4 class="card-title">Ф.И.О</h4>
-                        <p class="card-text">{{this.Registration.ResponsiblePerson.name}} {{this.Registration.ResponsiblePerson.patronymicName}} {{this.Registration.ResponsiblePerson.lastName}}</p>
+                        <p class="card-text">{{this.Registration.ResponsiblePerson.name}}
+                            {{this.Registration.ResponsiblePerson.patronymicName}}
+                            {{this.Registration.ResponsiblePerson.lastName}}</p>
                         <h4 class="card-title">Должность</h4>
                         <p class="card-text">{{this.Registration.ResponsiblePerson.Position.name}}</p>
                     </div>
@@ -73,3 +78,14 @@
             {{/each}}
         </div>
     </div>
+    <script>
+        function remove(id) {
+            fetch("/api/extraditions/" + id, {
+                method: 'DELETE'
+            }).then(() => {
+                location.reload()
+            }).catch(err => {
+                console.error(err)
+            });
+        }
+    </script>

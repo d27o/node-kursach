@@ -53,7 +53,7 @@ module.exports = function(app, passport) {
     authController.responsiblePeopleTable
   );
 
-  app.post("/api/responsiblePeople", function(req, res) {
+  app.post("/api/responsiblePeople", isAdmin, function(req, res) {
     db.Address.create({
       CityId: req.body.CityId,
       street: req.body.street,
@@ -74,7 +74,7 @@ module.exports = function(app, passport) {
     });
   });
 
-  app.delete("/api/responsiblePeople/:id", function(req, res) {
+  app.delete("/api/responsiblePeople/:id", isAdmin, function(req, res) {
     db.ResponsiblePerson.destroy({ where: { id: req.params.id } }).then(
       function(responsiblePerson) {
         res.redirect("/tables/responsiblePeople");
@@ -82,7 +82,39 @@ module.exports = function(app, passport) {
     );
   });
 
-  app.put("/api/responsiblePeople/:id", function(req, res) {
+  app.delete("/api/protocols/:id", isAdmin, function(req, res) {
+    db.Protocol.destroy({ where: { id: req.params.id } }).then(
+      function(protocol) {
+        res.redirect("/tables/protocols");
+      }
+    );
+  });
+
+  app.delete("/api/registrations/:id", isAdmin, function(req, res) {
+    db.Registration.destroy({ where: { id: req.params.id } }).then(
+      function(registration) {
+        res.redirect("/tables/registrations");
+      }
+    );
+  });
+
+  app.delete("/api/extraditions/:id", isAdmin, function(req, res) {
+    db.Extradition.destroy({ where: { id: req.params.id } }).then(
+      function(extradition) {
+        res.redirect("/tables/extraditions");
+      }
+    );
+  });
+
+  app.delete("/api/criminalCases/:id", isAdmin, function(req, res) {
+    db.CriminalCase.destroy({ where: { id: req.params.id } }).then(
+      function(criminalCase) {
+        res.redirect("/tables/criminalCases");
+      }
+    );
+  });
+
+  app.put("/api/responsiblePeople/:id", isAdmin, function(req, res) {
     db.Address.update({
       CityId: req.body.CityId,
       street: req.body.street,
