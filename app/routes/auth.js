@@ -54,16 +54,23 @@ module.exports = function(app, passport) {
   );
 
   app.post("/api/responsiblePeople", function(req, res) {
-    db.ResponsiblePerson.create({
-      name: req.body.name,
-      patronymicName: req.body.patronymicName,
-      lastName: req.body.lastName,
-      PositionId: req.body.PositionId,
-      AddressId: 1,
-      createdAt: new Date(),
-      updatedAt: new Date()
-    }).then(function(responsiblePerson) {
-      res.redirect("/tables/responsiblePeople");
+    db.Address.create({
+      CityId: req.body.CityId,
+      street: req.body.street,
+      home: req.body.home,
+      flat: req.body.flat
+    }).then(function(address) {
+      db.ResponsiblePerson.create({
+        name: req.body.name,
+        patronymicName: req.body.patronymicName,
+        lastName: req.body.lastName,
+        PositionId: req.body.PositionId,
+        AddressId: address.dataValues.id,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      }).then(function(responsiblePerson) {
+        res.redirect("/tables/responsiblePeople");
+      });
     });
   });
 
@@ -76,20 +83,29 @@ module.exports = function(app, passport) {
   });
 
   app.put("/api/responsiblePeople/:id", function(req, res) {
-    console.log(req.body.json)
-    db.ResponsiblePerson.update(
-      {
-        name: req.body.name,
-        patronymicName: req.body.patronymicName,
-        lastName: req.body.lastName,
-        PositionId: req.body.PositionId,
-        AddressId: 1,
-      },
-      {
-        where: { id: req.params.id }
-      }
-    ).then(function(responsiblePerson) {
-      res.redirect("/tables/responsiblePeople");
+    db.Address.update({
+      CityId: req.body.CityId,
+      street: req.body.street,
+      home: req.body.home,
+      flat: req.body.flat
+    },
+    {
+      where: { id: req.body.AddressId}
+    }
+    ).then(function(address) {
+      db.ResponsiblePerson.update(
+        {
+          name: req.body.name,
+          patronymicName: req.body.patronymicName,
+          lastName: req.body.lastName,
+          PositionId: req.body.PositionId,
+        },
+        {
+          where: { id: req.params.id }
+        }
+      ).then(function(responsiblePerson) {
+        res.redirect("/tables/responsiblePeople");
+      });
     });
   });
 
