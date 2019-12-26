@@ -11,7 +11,10 @@ module.exports = function(app, passport) {
   app.post(
     "/registration",
     isAdmin,
-    passport.authenticate("local-registration")
+    passport.authenticate("local-registration", {
+      successRedirect: "/registration",
+      failureRedirect: "/registration"
+    })
   );
 
   app.get("/", authController.home);

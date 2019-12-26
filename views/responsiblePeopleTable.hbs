@@ -18,6 +18,10 @@
                         Редактировать
                     </button>
 
+                    <button type="button" class="btn btn-danger" onclick="remove({{this.id}})">
+                        Удалить
+                    </button>
+
                     <div class="modal fade" id="modal{{this.id}}" tabindex="-1" role="dialog"
                         aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
@@ -31,15 +35,30 @@
                                 </div>
                                 <div class="modal-body">
                                     <form name="personUpdate{{this.id}}">
-                                        <input type="text" name="name">
-                                        <input type="text" name="patronymicName">
-                                        <input type="text" name="lastName">
-                                        <select name="PositionId">
-                                            <option value="1">Специалист</option>
-                                            <option value="2">Следователь</option>
-                                            <option value="3">Прокурор</option>
-                                        </select>
-                                        <button type="button" class="btn btn-primary" onclick="update({{this.id}}, document.forms.personUpdate{{this.id}})">Отправить</button>
+                                        <div class="form-group">
+                                            <label for="name">Имя</label>
+                                            <input type="text" name="name" class="form-control" value="{{this.name}}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="text">Отчество</label>
+                                            <input type="text" name="patronymicName" class="form-control"
+                                                value="{{this.patronymicName}}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="text">Фамилия</label>
+                                            <input type="text" name="lastName" class="form-control"
+                                                value="{{this.lastName}}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="PositionId">Должность</label>
+                                            <select name="PositionId" class="form-control">
+                                                <option value="1">Специалист</option>
+                                                <option value="2">Следователь</option>
+                                                <option value="3">Прокурор</option>
+                                            </select>
+                                        </div>
+                                        <button type="button" class="btn btn-primary"
+                                            onclick="update({{this.id}}, document.forms.personUpdate{{this.id}})">Отправить</button>
                                     </form>
                                 </div>
                             </div>
@@ -50,24 +69,39 @@
             </div>
         </div>
         {{/each}}
-
-
-
-        {{!-- <form id="responsiblePeople" name="responsiblePeople" method="post" action="/api/responsiblePeople">
-            <input type="text" name="name" id="name">
-            <input type="text" name="patronymicName" id="patronymicName">
-            <input type="text" name="lastName" id="lastName">
-            <select name="PositionId" id="PositionId">
-                <option value="1">Специалист</option>
-                <option value="2">Следователь</option>
-                <option value="3">Прокурор</option>
-            </select>
-            <button type="submit">Отправить</button>
-        </form> --}}
-        <button onclick="remove(2)">Delete</button>
-
-
-
+        {{#if user.isAdmin}}
+        <div class="col-sm-12">
+            <div class="card mt-4">
+                <div class="card-header">Создание ответственного исполнителя</div>
+                <div class="card-body">
+                    <form id="responsiblePeople" name="responsiblePeople" method="post" action="/api/responsiblePeople">
+                        <div class="form-group">
+                            <label for="name">Имя</label>
+                            <input type="text" name="name" class="form-control" value="{{this.name}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="text">Отчество</label>
+                            <input type="text" name="patronymicName" class="form-control"
+                                value="{{this.patronymicName}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="text">Фамилия</label>
+                            <input type="text" name="lastName" class="form-control" value="{{this.lastName}}">
+                        </div>
+                        <div class="form-group">
+                            <label for="PositionId">Должность</label>
+                            <select name="PositionId" class="form-control">
+                                <option value="1">Специалист</option>
+                                <option value="2">Следователь</option>
+                                <option value="3">Прокурор</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Отправить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {{/if}}
     </div>
 </div>
 <script>
@@ -75,7 +109,7 @@
         fetch("/api/responsiblePeople/" + id, {
             method: 'DELETE'
         }).then(() => {
-            console.log('removed');
+            location.reload()
         }).catch(err => {
             console.error(err)
         });
