@@ -20,48 +20,47 @@ module.exports = function(passport, user) {
     });
   });
 
-  // passport.use(
-  //   "local-signup",
-  //   new LocalStrategy(
-  //     {
-  //       usernameField: "username",
-  //       passwordField: "password",
-  //       passReqToCallback: true // allows us to pass back the entire request to the callback
-  //     },
+  passport.use(
+    "local-registration",
+    new LocalStrategy(
+      {
+        usernameField: "username",
+        passwordField: "password",
+        passReqToCallback: true // allows us to pass back the entire request to the callback
+      },
 
-  //     function(req, username, password, done) {
-  //       var generateHash = function(password) {
-  //         return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
-  //       };
+      function(req, username, password, done) {
+        var generateHash = function(password) {
+          return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
+        };
 
-  //       User.findOne({ where: { username: username } }).then(function(user) {
-  //         if (user) {
-  //           return done(null, false, {
-  //             message: "That email is already taken"
-  //           });
-  //         } else {
-  //           var userPassword = generateHash(password);
-  //           var data = {
-  //             username: username,
-  //             password: userPassword,
-  //             // firstname: req.body.firstname,
-  //             // lastname: req.body.lastname
-  //           };
+        User.findOne({ where: { username: username } }).then(function(user) {
+          if (user) {
+            return done(null, false, {
+              message: "That username is already taken"
+            });
+          } else {
+            var userPassword = generateHash(password);
+            var data = {
+              username: username,
+              password: userPassword,
+              isAdmin: req.body.isAdmin
+            };
 
-  //           User.create(data).then(function(newUser, created) {
-  //             if (!newUser) {
-  //               return done(null, false);
-  //             }
+            User.create(data).then(function(newUser, created) {
+              if (!newUser) {
+                return done(null, false);
+              }
 
-  //             if (newUser) {
-  //               return done(null, newUser);
-  //             }
-  //           });
-  //         }
-  //       });
-  //     }
-  //   )
-  // );
+              if (newUser) {
+                return done(null, newUser);
+              }
+            });
+          }
+        });
+      }
+    )
+  );
 
   //LOCAL SIGNIN
   passport.use(
