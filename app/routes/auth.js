@@ -1,4 +1,5 @@
 var authController = require("../controllers/authcontroller.js");
+var db = require("../../database/models");
 
 module.exports = function(app, passport) {
   //   app.get("/signup", authController.signup);
@@ -7,7 +8,11 @@ module.exports = function(app, passport) {
 
   app.get("/registration", isAdmin, authController.userRegistration);
 
-  app.post("/registration", isAdmin ,passport.authenticate("local-registration"));
+  app.post(
+    "/registration",
+    isAdmin,
+    passport.authenticate("local-registration")
+  );
 
   app.get("/", authController.home);
 
@@ -44,6 +49,46 @@ module.exports = function(app, passport) {
     isLoggedIn,
     authController.responsiblePeopleTable
   );
+
+  app.post("/api/responsiblePeople", function(req, res) {
+    db.ResponsiblePerson.create({
+      name: req.body.name,
+      patronymicName: req.body.patronymicName,
+      lastName: req.body.lastName,
+      PositionId: req.body.PositionId,
+      AddressId: 1,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    }).then(function(responsiblePerson) {
+      res.redirect("/tables/responsiblePeople");
+    });
+  });
+
+  app.delete("/api/responsiblePeople/:id", function(req, res) {
+    db.ResponsiblePerson.destroy({ where: { id: req.params.id } }).then(
+      function(responsiblePerson) {
+        res.redirect("/tables/responsiblePeople");
+      }
+    );
+  });
+
+  app.put("/api/responsiblePeople/:id", function(req, res) {
+    console.log(req.body.json)
+    db.ResponsiblePerson.update(
+      {
+        name: req.body.name,
+        patronymicName: req.body.patronymicName,
+        lastName: req.body.lastName,
+        PositionId: req.body.PositionId,
+        AddressId: 1,
+      },
+      {
+        where: { id: req.params.id }
+      }
+    ).then(function(responsiblePerson) {
+      res.redirect("/tables/responsiblePeople");
+    });
+  });
 
   app.get("/tables/protocols", isLoggedIn, authController.protocolsTable);
 

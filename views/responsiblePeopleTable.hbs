@@ -13,9 +13,93 @@
                     <p class="card-text"><b>Стаж:</b> {{this.ExtraOption.experience}}</p>
                     <p class="card-text"><b>Специальность:</b> {{this.ExtraOption.Specialization.name}}</p>
                     {{/if}}
+                    {{#if ../user.isAdmin}}
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal{{this.id}}">
+                        Редактировать
+                    </button>
+
+                    <div class="modal fade" id="modal{{this.id}}" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Обновить данные об ответственном
+                                        исполнителе</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form name="personUpdate{{this.id}}">
+                                        <input type="text" name="name">
+                                        <input type="text" name="patronymicName">
+                                        <input type="text" name="lastName">
+                                        <select name="PositionId">
+                                            <option value="1">Специалист</option>
+                                            <option value="2">Следователь</option>
+                                            <option value="3">Прокурор</option>
+                                        </select>
+                                        <button type="button" class="btn btn-primary" onclick="update({{this.id}}, document.forms.personUpdate{{this.id}})">Отправить</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{/if}}
                 </div>
             </div>
         </div>
         {{/each}}
+
+
+
+        {{!-- <form id="responsiblePeople" name="responsiblePeople" method="post" action="/api/responsiblePeople">
+            <input type="text" name="name" id="name">
+            <input type="text" name="patronymicName" id="patronymicName">
+            <input type="text" name="lastName" id="lastName">
+            <select name="PositionId" id="PositionId">
+                <option value="1">Специалист</option>
+                <option value="2">Следователь</option>
+                <option value="3">Прокурор</option>
+            </select>
+            <button type="submit">Отправить</button>
+        </form> --}}
+        <button onclick="remove(2)">Delete</button>
+
+
+
     </div>
 </div>
+<script>
+    function remove(id) {
+        fetch("/api/responsiblePeople/" + id, {
+            method: 'DELETE'
+        }).then(() => {
+            console.log('removed');
+        }).catch(err => {
+            console.error(err)
+        });
+    }
+
+    function update(id, formName) {
+        let form = formName
+        let myData = {
+            name: form.elements.name.value,
+            patronymicName: form.elements.patronymicName.value,
+            lastName: form.elements.lastName.value,
+            PositionId: form.elements.PositionId.value
+        }
+        let data = JSON.stringify(myData)
+        fetch("/api/responsiblePeople/" + id, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: data
+        }).then(() => {
+            location.reload()
+        }).catch(err => {
+            console.error(err)
+        });
+    }
+</script>
