@@ -20,12 +20,14 @@
                 <a class="dropdown-item" href="/tables/protocols">Протоколы</a>
                 <a class="dropdown-item" href="/tables/registrations">Запись регистрации вещественных доказательств</a>
                 <a class="dropdown-item" href="/tables/extraditions">Запись о выдаче вещественных доказательств</a>
-                <a href="/tables/criminalCases" class="dropdown-item">Уголовные дела</a>
+                <a class="dropdown-item" href="/tables/criminalCases">Уголовные дела</a>
             </div>
         </li>
+        {{#if user.isAdmin}}
         <li class="nav-item">
-            <a class="nav-link" href="#">Консоль</a>
+            <a class="nav-link" href="/registration">Зарегистрировать пользователя</a>
         </li>
+        {{/if}}
         <li class="nav-item ml-auto">
             <a href="/logout" class="nav-link">Выйти</a>
         </li>

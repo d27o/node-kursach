@@ -33,6 +33,17 @@ module.exports = function(app, passport) {
     res.redirect("/login");
   }
 
+  function isAdmin(req, res, next) {
+    if (req.isAuthenticated() && req.user.isAdmin === true) {
+      return next();
+    } else if(req.isAuthenticated()){
+      res.sendStatus(401);
+    } else {
+      res.redirect("/login");
+    }
+  }
+
+
   app.get("/tables/responsiblePeople", isLoggedIn ,authController.responsiblePeopleTable)
 
   app.get("/tables/protocols", isLoggedIn ,authController.protocolsTable)
@@ -42,4 +53,6 @@ module.exports = function(app, passport) {
   app.get("/tables/extraditions", isLoggedIn ,authController.extraditionsTable)
 
   app.get("/tables/criminalCases", isLoggedIn ,authController.criminalCaseTable)
+
+  app.get("/registration", isAdmin ,authController.userRegistration)
 };

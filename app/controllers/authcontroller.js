@@ -18,6 +18,10 @@ exports.logout = function(req, res) {
   });
 };
 
+exports.userRegistration = function(req, res) {
+  res.render('userRegistration', {user: req.user})
+}
+
 exports.responsiblePeopleTable = function(req, res) {
   require("../../database/models")
     .ResponsiblePerson.findAll({
@@ -36,7 +40,7 @@ exports.responsiblePeopleTable = function(req, res) {
       ]
     })
     .then(function(person) {
-      res.render("responsiblePeopleTable", { responsiblePeople: person });
+      res.render("responsiblePeopleTable", { responsiblePeople: person, user: req.user });
     });
 };
 
@@ -72,7 +76,7 @@ exports.protocolsTable = function(req, res) {
       ]
     })
     .then(function(protocols) {
-      res.render("protocolsTable", { protocols: protocols });
+      res.render("protocolsTable", { protocols: protocols, user: req.user });
     });
 };
 
@@ -99,12 +103,12 @@ exports.registrationsTable = function(req, res) {
       ]
     })
     .then(function(registrations) {
-      res.render("registrationsTable", { registrations: registrations });
+      res.render("registrationsTable", { registrations: registrations, user: req.user});
     });
 };
 
 exports.welcome = function(req, res) {
-  res.render("welcome");
+  res.render("welcome", {user: req.user});
 };
 
 exports.extraditionsTable = function(req, res) {
@@ -154,7 +158,7 @@ exports.extraditionsTable = function(req, res) {
       ]
     })
     .then(function(extraditions) {
-      res.render("extraditionsTable", { extraditions: extraditions });
+      res.render("extraditionsTable", { extraditions: extraditions, user: req.user });
     });
 };
 
@@ -204,6 +208,6 @@ exports.criminalCaseTable = function(req, res) {
       ]
     })
     .then(function(criminalCases) {
-      res.render("criminalCaseTable", { criminalCases: criminalCases });
+      res.render("criminalCaseTable", { criminalCases: criminalCases, user: req.user });
     });
 };
