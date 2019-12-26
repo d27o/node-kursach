@@ -25,7 +25,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
-      documentId: {
+      DocumentId: {
         type: Sequelize.INTEGER,
         onDelete: "CASCADE",
         onUpdate: "CASCADE",
@@ -35,7 +35,7 @@ module.exports = {
           key: 'id'
         }
       },
-      responsiblePersonId: {
+      ResponsiblePersonId: {
         type: Sequelize.INTEGER,
         onDelete: "CASCADE",
         onUpdate: "CASCADE",
@@ -45,7 +45,7 @@ module.exports = {
           key: 'id'
         }
       },
-      registrationId: {
+      RegistrationId: {
         type: Sequelize.INTEGER,
         onDelete: "CASCADE",
         onUpdate: "CASCADE",

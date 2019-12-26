@@ -2,11 +2,10 @@
 module.exports = (sequelize, DataTypes) => {
   const Expertise = sequelize.define('Expertise', {
     date: DataTypes.DATE,
-    time: DataTypes.TIME,
     conclusion: DataTypes.STRING,
-    responsiblePersonId: DataTypes.INTEGER,
-    criminalCaseId: DataTypes.INTEGER,
-    materialEvidenceId: DataTypes.INTEGER
+    ResponsiblePersonId: DataTypes.INTEGER,
+    CriminalCaseId: DataTypes.INTEGER,
+    MaterialEvidenceId: DataTypes.INTEGER
   }, {});
   Expertise.associate = function(models) {
     // associations can be defined here

@@ -18,6 +18,10 @@ exports.logout = function(req, res) {
   });
 };
 
+exports.userRegistration = function(req, res) {
+  res.render('userRegistration', {user: req.user})
+}
+
 exports.responsiblePeopleTable = function(req, res) {
   require("../../database/models")
     .ResponsiblePerson.findAll({
@@ -36,7 +40,7 @@ exports.responsiblePeopleTable = function(req, res) {
       ]
     })
     .then(function(person) {
-      res.render("responsiblePeopleTable", { responsiblePeople: person });
+      res.render("responsiblePeopleTable", { responsiblePeople: person, user: req.user });
     });
 };
 
@@ -72,11 +76,9 @@ exports.protocolsTable = function(req, res) {
       ]
     })
     .then(function(protocols) {
-      res.render("protocolsTable", { protocols: protocols });
+      res.render("protocolsTable", { protocols: protocols, user: req.user });
     });
 };
-
-
 
 exports.registrationsTable = function(req, res) {
   require("../../database/models")
@@ -84,9 +86,11 @@ exports.registrationsTable = function(req, res) {
       include: [
         {
           model: require("../../database/models").ResponsiblePerson,
-          include: [{
-            model: require("../../database/models").Position
-          }]
+          include: [
+            {
+              model: require("../../database/models").Position
+            }
+          ]
         },
         {
           model: require("../../database/models").MaterialEvidence,
@@ -99,10 +103,111 @@ exports.registrationsTable = function(req, res) {
       ]
     })
     .then(function(registrations) {
-      res.render("registrationsTable", { registrations: registrations });
+      res.render("registrationsTable", { registrations: registrations, user: req.user});
     });
 };
 
 exports.welcome = function(req, res) {
-  res.render("welcome");
+  res.render("welcome", {user: req.user});
+};
+
+exports.extraditionsTable = function(req, res) {
+  require("../../database/models")
+    .Extradition.findAll({
+      include: [
+        {
+          model: require("../../database/models").Document,
+          include: [
+            {
+              model: require("../../database/models").TypeOfDocument
+            },
+            {
+              model: require("../../database/models").ResponsiblePerson
+            }
+          ]
+        },
+        {
+          model: require("../../database/models").ResponsiblePerson,
+          include: [
+            {
+              model: require("../../database/models").Position
+            }
+          ]
+        },
+        {
+          model: require("../../database/models").Registration,
+          include: [
+            {
+              model: require("../../database/models").ResponsiblePerson,
+              include: [
+                {
+                  model: require("../../database/models").Position
+                }
+              ]
+            },
+            {
+              model: require("../../database/models").MaterialEvidence,
+              include: [
+                {
+                  model: require("../../database/models").TypeOfMaterialEvidence
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    })
+    .then(function(extraditions) {
+      res.render("extraditionsTable", { extraditions: extraditions, user: req.user });
+    });
+};
+
+exports.criminalCaseTable = function(req, res) {
+  require("../../database/models")
+    .CriminalCase.findAll({
+      include: [
+        {
+          model: require("../../database/models").MaterialEvidence,
+          through: require("../../database/models")
+            .CriminalCaseMaterialEvidence,
+          include: [
+            {
+              model: require("../../database/models").TypeOfMaterialEvidence
+            }
+          ]
+        },
+        {
+          model: require("../../database/models").Expertise,
+          include: [
+            {
+              model: require("../../database/models").ResponsiblePerson,
+              include: [
+                {
+                  model: require("../../database/models").Position
+                },
+                {
+                  model: require("../../database/models").ExtraOptions,
+                  include: [
+                    {
+                      model: require("../../database/models").Specialization
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              model: require("../../database/models").MaterialEvidence,
+              include: [
+                {
+                  model: require("../../database/models").TypeOfMaterialEvidence
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    })
+    .then(function(criminalCases) {
+      res.render("criminalCaseTable", { criminalCases: criminalCases, user: req.user });
+    });
 };

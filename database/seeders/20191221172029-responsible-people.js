@@ -17,9 +17,7 @@ module.exports = {
           updatedAt: new Date(),
           PositionId: 1,
           AddressId: 5,
-          ExtraOptionId: 2,
-          password: '$2a$08$LXRanPgF3D9vsXogcC.6QetC5ADD8mcxQ2y.mtmMxgUz9ySH0Tm16',
-          username: 'admin'
+          ExtraOptionId: 2
         },
         {
           name: "Дмитрий",

@@ -11,32 +11,32 @@ module.exports = {
       {
         createdAt: new Date(),
         updatedAt: new Date(),
-        criminalCaseId: 1,
-        materialEvidenceId: 1
+        CriminalCaseId: 1,
+        MaterialEvidenceId: 1
       },
       {
         createdAt: new Date(),
         updatedAt: new Date(),
-        criminalCaseId: 1,
-        materialEvidenceId: 2
+        CriminalCaseId: 1,
+        MaterialEvidenceId: 2
       },
       {
         createdAt: new Date(),
         updatedAt: new Date(),
-        criminalCaseId: 1,
-        materialEvidenceId: 3
+        CriminalCaseId: 1,
+        MaterialEvidenceId: 3
       },
       {
         createdAt: new Date(),
         updatedAt: new Date(),
-        criminalCaseId: 2,
-        materialEvidenceId: 4
+        CriminalCaseId: 2,
+        MaterialEvidenceId: 4
       },
       {
         createdAt: new Date(),
         updatedAt: new Date(),
-        criminalCaseId: 2,
-        materialEvidenceId: 5
+        CriminalCaseId: 2,
+        MaterialEvidenceId: 5
       },
     ], {});
     

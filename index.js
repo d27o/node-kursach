@@ -32,7 +32,7 @@ app.set('view engine', '.hbs')
 app.set('views', path.join(__dirname, 'views'))
 
 //Models
-var user = require("./database/models").ResponsiblePerson;
+var user = require("./database/models").User;
 
 //Routes
 var authRoute = require("./app/routes/auth.js")(app, passport);
@@ -41,17 +41,6 @@ var authRoute = require("./app/routes/auth.js")(app, passport);
 
 //load passport strategies
 require("./app/config/passport")(passport, user);
-
-//Sync Database
-// models.sequelize
-//   .sync()
-//   .then(function() {
-//     console.log("Nice! Database looks fine");
-//   })
-//   .catch(function(err) {
-//     console.log(err, "Something went wrong with the Database Update!");
-//   });
-
 // console.log(user.findAll())
 
 app.listen(5000, function(err) {

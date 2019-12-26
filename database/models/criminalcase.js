@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
     // One Criminal Case has Many Expertises
     models.CriminalCase.belongsToMany(models.MaterialEvidence, {
       through: "CriminalCaseMaterialEvidence",
-      foreignKey: "criminalCaseId"
+      foreignKey: "CriminalCaseId"
     });
     // Many Criminal Cases belongs to Many Material Evidences
   };

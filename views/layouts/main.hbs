@@ -18,12 +18,16 @@
             <div class="dropdown-menu">
                 <a class="dropdown-item" href="/tables/responsiblePeople">Ответственные лица</a>
                 <a class="dropdown-item" href="/tables/protocols">Протоколы</a>
-                <a class="dropdown-item" href="/tables/registrations">Регистрация вещественного доказательства</a>
+                <a class="dropdown-item" href="/tables/registrations">Запись регистрации вещественных доказательств</a>
+                <a class="dropdown-item" href="/tables/extraditions">Запись о выдаче вещественных доказательств</a>
+                <a class="dropdown-item" href="/tables/criminalCases">Уголовные дела</a>
             </div>
         </li>
+        {{#if user.isAdmin}}
         <li class="nav-item">
-            <a class="nav-link" href="#">Консоль</a>
+            <a class="nav-link" href="/registration">Зарегистрировать пользователя</a>
         </li>
+        {{/if}}
         <li class="nav-item ml-auto">
             <a href="/logout" class="nav-link">Выйти</a>
         </li>
