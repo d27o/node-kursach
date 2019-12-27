@@ -7,15 +7,201 @@
                     {{this.name}} {{this.patronymicName}} {{this.lastName}}
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title">Информация</h5>
+                    <h3 class="card-title">Информация</h3>
                     <p class="card-text"><b>Должность:</b> {{this.Position.name}}</p>
+                    <h4 class="card-title">Адрес</h4>
+                    <p class="card-text">Город {{this.Address.City.name}}, Улица {{this.Address.street}}, Дом
+                        {{this.Address.home}}, Квартира {{this.Address.flat}}</p>
                     {{#if this.ExtraOptionId}}
                     <p class="card-text"><b>Стаж:</b> {{this.ExtraOption.experience}}</p>
                     <p class="card-text"><b>Специальность:</b> {{this.ExtraOption.Specialization.name}}</p>
+                    {{/if}}
+                    {{#if ../user.isAdmin}}
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal{{this.id}}">
+                        Редактировать
+                    </button>
+
+                    <button type="button" class="btn btn-danger" onclick="remove({{this.id}})">
+                        Удалить
+                    </button>
+
+                    <div class="modal fade" id="modal{{this.id}}" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Обновить данные об ответственном
+                                        исполнителе</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form name="personUpdate{{this.id}}" onsubmit="update({{this.id}}, document.forms.personUpdate{{this.id}}, {{this.AddressId}})">
+                                        <div class="form-group">
+                                            <label for="name">Имя</label>
+                                            <input type="text" name="name" class="form-control" value="{{this.name}}"
+                                                required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="text">Отчество</label>
+                                            <input type="text" name="patronymicName" class="form-control"
+                                                value="{{this.patronymicName}}" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="text">Фамилия</label>
+                                            <input type="text" name="lastName" class="form-control"
+                                                value="{{this.lastName}}" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="PositionId">Должность</label>
+                                            <select name="PositionId" class="form-control" required
+                                                value="{{this.Position.id}}">
+                                                <option value="1">Специалист</option>
+                                                <option value="2">Следователь</option>
+                                                <option value="3">Прокурор</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="CityId">Город</label>
+                                            <select name="CityId" class="form-control" required
+                                                value="{{this.Address.City.id}}">
+                                                <option value="1">Москва</option>
+                                                <option value="2">Санкт Петербург</option>
+                                                <option value="3">Краснодар</option>
+                                                <option value="4">Казань</option>
+                                                <option value="5">Сочи</option>
+                                                <option value="6">Волгоград</option>
+                                                <option value="7">Ярославль</option>
+                                                <option value="8">Череповец</option>
+                                                <option value="9">Оренбург</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="street">Улица</label>
+                                            <input type="text" name="street" class="form-control" required
+                                                value="{{this.Address.street}}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="home">Дом</label>
+                                            <input type="text" name="home" class="form-control" required
+                                                value="{{this.Address.home}}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="flat">Квартира</label>
+                                            <input type="text" name="flat" class="form-control" required
+                                                value="{{this.Address.flat}}">
+                                        </div>
+                                        <button class="btn btn-primary" type="submit">Отправить</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     {{/if}}
                 </div>
             </div>
         </div>
         {{/each}}
+        {{#if user.isAdmin}}
+        <div class="col-sm-12">
+            <div class="card mt-4">
+                <div class="card-header">Создание ответственного исполнителя</div>
+                <div class="card-body">
+                    <form id="responsiblePeople" name="responsiblePeople" method="post" action="/api/responsiblePeople">
+                        <div class="form-group">
+                            <label for="name">Имя</label>
+                            <input type="text" name="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="text">Отчество</label>
+                            <input type="text" name="patronymicName" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="text">Фамилия</label>
+                            <input type="text" name="lastName" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="PositionId">Должность</label>
+                            <select name="PositionId" class="form-control" required>
+                                <option value="1">Специалист</option>
+                                <option value="2">Следователь</option>
+                                <option value="3">Прокурор</option>
+                            </select>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-sm-3">
+                                <label for="CityId">Город</label>
+                                <select name="CityId" class="form-control" required>
+                                    <option value="1">Москва</option>
+                                    <option value="2">Санкт Петербург</option>
+                                    <option value="3">Краснодар</option>
+                                    <option value="4">Казань</option>
+                                    <option value="5">Сочи</option>
+                                    <option value="6">Волгоград</option>
+                                    <option value="7">Ярославль</option>
+                                    <option value="8">Череповец</option>
+                                    <option value="9">Оренбург</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-sm-3">
+                                <label for="street">Улица</label>
+                                <input type="text" name="street" class="form-control" required>
+                            </div>
+                            <div class="form-group col-sm-3">
+                                <label for="home">Дом</label>
+                                <input type="text" name="home" class="form-control" required>
+                            </div>
+                            <div class="form-group col-sm-3">
+                                <label for="flat">Квартира</label>
+                                <input type="text" name="flat" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Отправить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {{/if}}
     </div>
 </div>
+<script>
+    function remove(id) {
+        fetch("/api/responsiblePeople/" + id, {
+            method: 'DELETE'
+        }).then(() => {
+            location.reload()
+        }).catch(err => {
+            console.error(err)
+        });
+    }
+
+    function update(id, formName, addressId) {
+        let form = formName
+        let myData = {
+            name: form.elements.name.value,
+            patronymicName: form.elements.patronymicName.value,
+            lastName: form.elements.lastName.value,
+            PositionId: form.elements.PositionId.value,
+            CityId: form.elements.CityId.value,
+            street: form.elements.street.value,
+            home: form.elements.home.value,
+            flat: form.elements.flat.value,
+            AddressId: addressId
+        }
+        let data = JSON.stringify(myData)
+        fetch("/api/responsiblePeople/update/" + id, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json;charset=utf-8'
+            },
+            body: data
+        }).then(() => {
+            location.reload()
+        }).catch(err => {
+            console.error(err)
+        });
+    }
+</script>

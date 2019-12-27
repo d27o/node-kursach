@@ -53,7 +53,7 @@ module.exports = function(passport, user) {
               }
 
               if (newUser) {
-                return done(null, newUser);
+                return done(null, false);
               }
             });
           }
@@ -83,7 +83,7 @@ module.exports = function(passport, user) {
         User.findOne({ where: { username: username } })
           .then(function(user) {
             if (!user) {
-              return done(null, false, { message: "Email does not exist" });
+              return done(null, false, { message: "username does not exist" });
             }
 
             if (!isValidPassword(user.password, password)) {

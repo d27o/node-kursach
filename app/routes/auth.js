@@ -1,4 +1,5 @@
 var authController = require("../controllers/authcontroller.js");
+var db = require("../../database/models");
 
 module.exports = function(app, passport) {
   //   app.get("/signup", authController.signup);
@@ -7,10 +8,14 @@ module.exports = function(app, passport) {
 
   app.get("/registration", isAdmin, authController.userRegistration);
 
-  app.post("/registration", passport.authenticate("local-registration",{
-    successRedirect: "/welcome",
-    failureRedirect: "/registration"
-  }));
+  app.post(
+    "/registration",
+    isAdmin,
+    passport.authenticate("local-registration", {
+      successRedirect: "/registration",
+      failureRedirect: "/registration"
+    })
+  );
 
   app.get("/", authController.home);
 
@@ -47,6 +52,94 @@ module.exports = function(app, passport) {
     isLoggedIn,
     authController.responsiblePeopleTable
   );
+
+  app.post("/api/responsiblePeople", isAdmin, function(req, res) {
+    db.Address.create({
+      CityId: req.body.CityId,
+      street: req.body.street,
+      home: req.body.home,
+      flat: req.body.flat
+    }).then(function(address) {
+      db.ResponsiblePerson.create({
+        name: req.body.name,
+        patronymicName: req.body.patronymicName,
+        lastName: req.body.lastName,
+        PositionId: req.body.PositionId,
+        AddressId: address.dataValues.id,
+        createdAt: new Date(),
+        updatedAt: new Date()
+      }).then(function(responsiblePerson) {
+        res.redirect("/tables/responsiblePeople");
+      });
+    });
+  });
+
+  app.delete("/api/responsiblePeople/:id", isAdmin, function(req, res) {
+    db.ResponsiblePerson.destroy({ where: { id: req.params.id } }).then(
+      function(responsiblePerson) {
+        res.redirect("/tables/responsiblePeople");
+      }
+    );
+  });
+
+  app.delete("/api/protocols/:id", isAdmin, function(req, res) {
+    db.Protocol.destroy({ where: { id: req.params.id } }).then(
+      function(protocol) {
+        res.redirect("/tables/protocols");
+      }
+    );
+  });
+
+  app.delete("/api/registrations/:id", isAdmin, function(req, res) {
+    db.Registration.destroy({ where: { id: req.params.id } }).then(
+      function(registration) {
+        res.redirect("/tables/registrations");
+      }
+    );
+  });
+
+  app.delete("/api/extraditions/:id", isAdmin, function(req, res) {
+    db.Extradition.destroy({ where: { id: req.params.id } }).then(
+      function(extradition) {
+        res.redirect("/tables/extraditions");
+      }
+    );
+  });
+
+  app.delete("/api/criminalCases/:id", isAdmin, function(req, res) {
+    db.CriminalCase.destroy({ where: { id: req.params.id } }).then(
+      function(criminalCase) {
+        res.redirect("/tables/criminalCases");
+      }
+    );
+  });
+
+  app.put("/api/responsiblePeople/:id", isAdmin, function(req, res) {
+    db.Address.update({
+      CityId: req.body.CityId,
+      street: req.body.street,
+      home: req.body.home,
+      flat: req.body.flat
+    },
+    {
+      where: { id: req.body.AddressId}
+    }
+    ).then(function(address) {
+      db.ResponsiblePerson.update(
+        {
+          name: req.body.name,
+          patronymicName: req.body.patronymicName,
+          lastName: req.body.lastName,
+          PositionId: req.body.PositionId,
+        },
+        {
+          where: { id: req.params.id }
+        }
+      ).then(function(responsiblePerson) {
+        res.redirect("/tables/responsiblePeople");
+      });
+    });
+  });
 
   app.get("/tables/protocols", isLoggedIn, authController.protocolsTable);
 

@@ -5,7 +5,9 @@
             <div class="card">
                 <!-- Шапка с навигацией -->
                 <div class="card-header">
-                    <h2>Уголовное дело № {{this.numberOfCriminalCase}}</h2>
+                    <h2>Уголовное дело № {{this.numberOfCriminalCase}} <button type="button" class="btn btn-danger mx-auto" onclick="remove({{this.id}})">
+                            Удалить
+                        </button></h2>
                     <ul class="nav nav-tabs card-header-tabs">
                         <li class="nav-item active">
                             <a class="nav-link " data-toggle="tab" href="#evidence{{this.id}}">Вещественные
@@ -72,3 +74,14 @@
             {{/each}}
         </div>
     </div>
+    <script>
+        function remove(id) {
+            fetch("/api/criminalCases/" + id, {
+                method: 'DELETE'
+            }).then(() => {
+                location.reload()
+            }).catch(err => {
+                console.error(err)
+            });
+        }
+    </script>
