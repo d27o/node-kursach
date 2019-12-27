@@ -114,7 +114,7 @@ module.exports = function(app, passport) {
     );
   });
 
-  app.put("/api/responsiblePeople/:id", isAdmin, function(req, res) {
+  app.put("/api/responsiblePeople/update/:id", isAdmin, function(req, res) {
     db.Address.update({
       CityId: req.body.CityId,
       street: req.body.street,

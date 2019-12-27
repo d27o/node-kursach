@@ -7,7 +7,6 @@ var bodyParser = require("body-parser");
 // var env = require("dotenv").load();
 var exphbs = require("express-handlebars");
 
-
 app.use(express.static(path.join(__dirname, 'public')));
 
 //For BodyParser
@@ -44,6 +43,6 @@ require("./app/config/passport")(passport, user);
 // console.log(user.findAll())
 
 app.listen(5000, function(err) {
-  if (!err) console.log("Site is live");
+  if (!err) console.log("Project started");
   else console.log(err);
 });

@@ -11,7 +11,7 @@ module.exports = {
       [
         {
           username: "admin",
-          password: "$2a$08$LXRanPgF3D9vsXogcC.6QetC5ADD8mcxQ2y.mtmMxgUz9ySH0Tm16",
+          password: "$2a$08$GiJcJXCHmuDFPOFd7ziN1uxQo7/Q/cs3mI4iuvq0AZGN3hY5rmOT.",
           isAdmin: true,
           createdAt: new Date(),
           updatedAt: new Date()
