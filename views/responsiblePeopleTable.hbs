@@ -55,12 +55,8 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="PositionId">Должность</label>
-                                            <select name="PositionId" class="form-control" required
-                                                value="{{this.Position.id}}">
-                                                <option value="1">Специалист</option>
-                                                <option value="2">Следователь</option>
-                                                <option value="3">Прокурор</option>
-                                            </select>
+                                            <input type="text" name="PositionId" class="form-control"
+                                                value="{{this.Position.name}}" disabled>
                                         </div>
                                         <div class="form-group">
                                             <label for="CityId">Город</label>
@@ -184,7 +180,6 @@
             name: form.elements.name.value,
             patronymicName: form.elements.patronymicName.value,
             lastName: form.elements.lastName.value,
-            PositionId: form.elements.PositionId.value,
             CityId: form.elements.CityId.value,
             street: form.elements.street.value,
             home: form.elements.home.value,

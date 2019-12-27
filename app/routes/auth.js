@@ -130,7 +130,6 @@ module.exports = function(app, passport) {
           name: req.body.name,
           patronymicName: req.body.patronymicName,
           lastName: req.body.lastName,
-          PositionId: req.body.PositionId,
         },
         {
           where: { id: req.params.id }
