@@ -17,27 +17,7 @@ module.exports = {
           numberOfCriminalCase: '0002',
           createdAt: new Date(),
           updatedAt: new Date(),
-        },
-        {
-          numberOfCriminalCase: '0003',
-          createdAt: new Date(),
-          updatedAt: new Date(),
-        },
-        {
-          numberOfCriminalCase: '0004',
-          createdAt: new Date(),
-          updatedAt: new Date(),
-        },
-        {
-          numberOfCriminalCase: '0005',
-          createdAt: new Date(),
-          updatedAt: new Date(),
-        },
-        {
-          numberOfCriminalCase: '0006',
-          createdAt: new Date(),
-          updatedAt: new Date(),
-        },
+        }
     ], {});
 
   },
